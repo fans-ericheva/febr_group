@@ -1,0 +1,319 @@
+.view-3,
+.view-4 {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 100%;
+}
+
+.view-3 {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.view-3 .text-wrapper-3 {
+    font-family: 'Georgia', serif;
+    font-size: 80px;
+    font-weight: normal;
+    color: #4F3E35;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin: 0 0 40px 0;
+}
+
+.view-3 .rectangle {
+    width: 100%;
+    max-width: 1628px;
+    height: 90px;
+    background-color: #4F3E35;
+    border-radius: 20px;
+    margin: 30px 0 0 6px;
+}
+
+.view-3 .p {
+    font-family: 'Georgia', serif;
+    font-weight: 400;
+    color: #DFD8CB;
+    font-size: 25px;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    max-width: 1628px;
+    margin: -90px 0 0 6px;
+    padding: 0 56px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+.view-3 .element {
+    margin-top: 80px;
+    max-width: 1749px;
+    width: 100%;
+}
+
+.view-3 .section-heading {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+    font-size: 45px;
+    letter-spacing: 0.02em;
+    color: #4F3E35;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    text-transform: none;
+}
+
+.view-3 .body-text {
+    font-family: 'Georgia', serif;
+    font-weight: normal;
+    font-size: 25px;
+    letter-spacing: 0.02em;
+    color: #4F3E35;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.view-3 .body-text:last-of-type {
+    margin-bottom: 0;
+}
+
+.view-3 .body-text strong {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+}
+
+.view-4 {
+    background-color: #4F3E35;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+}
+
+.view-4 .return-inner {
+    max-width: 1749px;
+    width: 100%;
+    margin-left: 0;
+}
+
+.view-4 .text-wrapper-7 {
+    font-family: 'Georgia', serif;
+    font-weight: normal;
+    color: #DFD8CB;
+    font-size: 80px; /* Как about-header h1 */
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin: 0 0 40px 0;
+}
+
+.view-4 .element-2 {
+    width: 100%;
+}
+
+.view-4 .return-text {
+    font-family: 'Georgia', serif;
+    font-weight: normal;
+    font-size: 25px; /* Как about-description и philosophy-text */
+    letter-spacing: 0.02em;
+    color: #DFD8CB;
+    line-height: 1.6;
+    margin-bottom: 40px; /* Как в about-description */
+}
+
+.view-4 .return-text:last-child {
+    margin-bottom: 0;
+}
+
+.view-4 .return-text strong {
+    font-family: 'Georgia', serif;
+    font-weight: 700;
+}
+
+/* Скрываем старые ненужные элементы */
+.view-4 .rectangle-2 {
+    display: none;
+}
+
+/* =============================================
+   АДАПТИВНОСТЬ (как в about-style.css)
+   ============================================= */
+
+@media (max-width: 1200px) {
+    .view-3,
+    .view-4 {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .view-3 .text-wrapper-3,
+    .view-4 .text-wrapper-7 {
+        font-size: 42px; /* Как about-header h1 на 1024px */
+    }
+
+    .view-3 .section-heading {
+        font-size: 28px; /* Как about-content-wrapper h2 на 1024px */
+    }
+
+    .view-3 .p,
+    .view-3 .body-text,
+    .view-4 .return-text {
+        font-size: 18px; /* Как about-description на 1024px */
+    }
+}
+
+@media (max-width: 1024px) {
+    .view-3 .text-wrapper-3,
+    .view-4 .text-wrapper-7 {
+        font-size: 42px;
+    }
+
+    .view-3 .section-heading {
+        font-size: 28px;
+    }
+
+    .view-3 .p,
+    .view-3 .body-text,
+    .view-4 .return-text {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 900px) {
+    .view-3,
+    .view-4 {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .view-4 {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .view-3 {
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
+
+    .view-3 .text-wrapper-3,
+    .view-4 .text-wrapper-7 {
+        font-size: 36px; /* Как about-header h1 на 768px */
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .view-3 .section-heading {
+        font-size: 26px; /* Как about-content-wrapper h2 на 768px */
+        margin-bottom: 25px;
+    }
+
+    .view-3 .p,
+    .view-3 .body-text,
+    .view-4 .return-text {
+        font-size: 17px; /* Как about-description на 768px */
+        margin-bottom: 30px;
+    }
+
+    .view-3 .p {
+        height: auto;
+        min-height: 70px;
+        margin-top: -70px;
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+    }
+    .view-3 .rectangle {
+        height: 70px;
+    }
+    .view-3 .element {
+        margin-top: 60px;
+    }
+
+    .view-4 {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .view-3 .text-wrapper-3,
+    .view-4 .text-wrapper-7 {
+        font-size: 32px; /* Как about-header h1 на 600px */
+    }
+
+    .view-3 .section-heading {
+        font-size: 24px; /* Как about-content-wrapper h2 на 600px */
+    }
+
+    .view-3 .p,
+    .view-3 .body-text,
+    .view-4 .return-text {
+        font-size: 16px; /* Как about-description на 600px */
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .view-3,
+    .view-4 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .view-3 .text-wrapper-3,
+    .view-4 .text-wrapper-7 {
+        font-size: 28px; /* Как about-header h1 на 480px */
+        margin-bottom: 25px;
+    }
+
+    .view-3 .section-heading {
+        font-size: 22px; /* Как about-content-wrapper h2 на 480px */
+        margin-bottom: 20px;
+    }
+
+    .view-3 .p,
+    .view-3 .body-text,
+    .view-4 .return-text {
+        font-size: 15px; /* Как about-description на 480px */
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+
+    .view-3 .p {
+        padding: 0 15px;
+        min-height: 60px;
+        margin-top: -60px;
+    }
+    .view-3 .rectangle {
+        height: 60px;
+    }
+
+    .view-4 .return-text {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .view-3 .text-wrapper-3,
+    .view-4 .text-wrapper-7 {
+        font-size: 24px; /* Чуть меньше для super small */
+    }
+
+    .view-3 .section-heading {
+        font-size: 20px;
+    }
+
+    .view-3 .p,
+    .view-3 .body-text,
+    .view-4 .return-text {
+        font-size: 14px;
+    }
+}

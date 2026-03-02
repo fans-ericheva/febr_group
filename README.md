@@ -1,1 +1,1 @@
-https://github.com/fans-ericheva/febr_group
+https://fans-ericheva.github.io/febr_group/

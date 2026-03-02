@@ -1,0 +1,690 @@
+/* styles/contacts-style.css */
+/* Стили в точности как в about-style.css */
+
+/* Заголовок страницы как в about-header */
+.contacts-header {
+    padding: 40px 80px 20px 60px;
+    background-color: #DFD8CB;
+}
+
+.contacts-header h1 {
+    font-family: 'Georgia', serif;
+    font-size: 80px;
+    font-weight: normal;
+    color: #4F3E35;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* Секция с контактной информацией (4 блока) на светлом фоне */
+.contacts-info-section {
+    background-color: #DFD8CB;
+    padding: 55px 60px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.contact-block {
+    background-color: #4F3E35;
+    color: #DFD8CB;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-block img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.contact-block h2 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #DFD8CB;
+    letter-spacing: 0.02em;
+}
+
+.contact-block p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    letter-spacing: 0.02em;
+    font-family: 'Arial', sans-serif;
+}
+
+.contact-block .contact-note {
+    font-size: 16px;
+    opacity: 0.8;
+    color: #DFD8CB;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Секция с картой и формой на коричневом фоне */
+.contact-map-form-section {
+    background-color: #4F3E35;
+    padding: 60px 80px 80px 60px;
+    margin: 0;
+}
+
+/* Заголовки для карты и формы */
+.section-titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.map-title,
+.feedback-title {
+    font-family: 'Georgia', serif;
+    font-size: 80px;
+    font-weight: normal;
+    color: #DFD8CB;
+    letter-spacing: 0.02em;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.map-title {
+    flex: 0 0 45%;
+    max-width: 600px;
+}
+
+.feedback-title {
+    flex: 1;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.map-form-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.map-wrapper {
+    flex: 0 0 45%;
+    max-width: 600px;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 450px;
+    border: 1px solid #DFD8CB;
+    border-radius: 0;
+}
+
+.form-wrapper {
+    flex: 1;
+    background-color: #4F3E35;
+    padding: 0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #DFD8CB;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: #DFD8CB;
+    background-color: #4F3E35;
+    border: 1px solid #DFD8CB;
+    border-radius: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #DFD8CB;
+    background-color: #5A4A40;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #DFD8CB;
+    opacity: 0.5;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    display: inline-block;
+    background-color: #DFD8CB;
+    color: #4F3E35;
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 40px;
+    border: 2px solid #DFD8CB;
+    border-radius: 23px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: transparent;
+    color: #DFD8CB;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .contacts-header {
+        padding: 35px 60px 15px 60px;
+    }
+
+    .contacts-info-section {
+        padding: 50px 60px;
+        gap: 25px;
+    }
+
+    .contact-map-form-section {
+        padding: 50px 60px 70px 60px;
+    }
+    
+    .map-title,
+    .feedback-title {
+        font-size: 60px;
+    }
+}
+
+/* Медиазапросы для перестановки заголовков */
+
+/* По умолчанию (десктоп) - скрываем мобильные заголовки */
+.mobile-title {
+    display: none;
+}
+
+/* Для экранов 1024px и меньше */
+@media (max-width: 1024px) {
+    .contacts-header h1 {
+        font-size: 42px;
+    }
+
+    .contacts-info-section {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 45px 40px;
+    }
+
+    .contact-block {
+        padding: 25px 15px;
+    }
+    
+    .contact-block img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .contact-block h2 {
+        font-size: 28px;
+    }
+
+    .contact-block p {
+        font-size: 18px;
+    }
+
+    .contact-block .contact-note {
+        font-size: 15px;
+    }
+
+    /* Секция с картой и формой */
+    .contact-map-form-section {
+        padding: 45px 40px 60px 40px;
+    }
+    
+    /* Скрываем десктопные заголовки */
+    .desktop-titles {
+        display: none;
+    }
+    
+    /* Показываем мобильные заголовки */
+    .mobile-title {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 42px;
+    }
+    
+    /* Одинаковые стили для обоих заголовков */
+    .map-wrapper,
+    .form-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .map-wrapper .mobile-title.map-title,
+    .form-wrapper .mobile-title.feedback-title {
+        margin-bottom: 15px;
+        text-align: center;
+        width: 100%;
+        font-size: 42px;
+        font-family: 'Georgia', serif;
+        font-weight: normal;
+        color: #DFD8CB;
+        letter-spacing: 0.02em;
+    }
+    
+    /* Убираем отступы у контейнера с заголовками */
+    .section-titles {
+        margin-bottom: 0;
+    }
+    
+    /* Настройки для контейнера карты и формы */
+    .map-form-container {
+        flex-direction: column;
+        gap: 35px;
+        width: 100%;
+        align-items: center;
+    }
+    
+    /* Карта на всю ширину */
+    .map-wrapper {
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .map-wrapper iframe {
+        width: 100%;
+        height: 400px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Форма на всю ширину */
+    .form-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .form-group {
+        width: 100%;
+        margin-bottom: 22px;
+    }
+    
+    .form-group label {
+        font-size: 22px;
+        text-align: left;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        font-size: 17px;
+        padding: 14px 18px;
+    }
+    
+    .form-group textarea {
+        min-height: 120px;
+    }
+    
+    .submit-btn {
+        width: 100%;
+        font-size: 22px;
+        padding: 14px 25px;
+        margin-top: 15px;
+    }
+}
+
+/* Для экранов 900px и меньше */
+@media (max-width: 900px) {
+    .contacts-header {
+        padding: 30px 30px 15px 30px;
+    }
+    
+    .contacts-header h1 {
+        font-size: 40px;
+    }
+
+    .contacts-info-section {
+        padding: 40px 30px;
+        gap: 20px;
+    }
+
+    .contact-map-form-section {
+        padding: 40px 30px 55px 30px;
+    }
+    
+    .mobile-title {
+        font-size: 40px;
+    }
+    
+    .map-wrapper .mobile-title.map-title,
+    .form-wrapper .mobile-title.feedback-title {
+        font-size: 40px;
+    }
+    
+    .map-wrapper iframe {
+        height: 380px;
+    }
+    
+    .form-group label {
+        font-size: 21px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
+        padding: 13px 16px;
+    }
+    
+    .submit-btn {
+        font-size: 21px;
+        padding: 13px 22px;
+    }
+}
+
+/* Для экранов 768px и меньше */
+@media (max-width: 768px) {
+    .contacts-header {
+        padding: 25px 20px 15px 20px;
+    }
+
+    .contacts-header h1 {
+        font-size: 36px;
+    }
+
+    .contacts-info-section {
+        padding: 35px 20px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-block {
+        padding: 25px 15px;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    
+    .contact-block img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .contact-block h2 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .contact-block p {
+        font-size: 17px;
+    }
+
+    .contact-block .contact-note {
+        font-size: 14px;
+    }
+
+    /* Секция с картой и формой */
+    .contact-map-form-section {
+        padding: 35px 20px 50px 20px;
+    }
+    
+    .mobile-title {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+    
+    .map-wrapper .mobile-title.map-title,
+    .form-wrapper .mobile-title.feedback-title {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+    
+    .map-wrapper iframe {
+        height: 300px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 20px;
+        text-align: left;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    .form-group textarea {
+        min-height: 120px;
+    }
+    
+    .submit-btn {
+        width: 100%;
+        font-size: 20px;
+        padding: 12px 20px;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contacts-header h1 {
+        font-size: 32px;
+    }
+    
+    .mobile-title {
+        font-size: 32px;
+    }
+    
+    .map-wrapper .mobile-title.map-title,
+    .form-wrapper .mobile-title.feedback-title {
+        font-size: 32px;
+    }
+    
+    .form-group label {
+        font-size: 18px;
+    }
+    
+    .submit-btn {
+        font-size: 18px;
+    }
+    
+    .map-wrapper iframe {
+        height: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-header {
+        padding: 20px 15px 10px 15px;
+    }
+    
+    .contacts-header h1 {
+        font-size: 28px;
+    }
+
+    .contact-block {
+        padding: 20px 15px;
+        max-width: 350px;
+    }
+    
+    .contact-block img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .contact-block h2 {
+        font-size: 24px;
+    }
+
+    .contact-block p {
+        font-size: 16px;
+    }
+
+    .contact-block .contact-note {
+        font-size: 14px;
+    }
+
+    .contact-map-form-section {
+        padding: 25px 15px 40px 15px;
+    }
+    
+    .mobile-title {
+        font-size: 28px;
+    }
+    
+    .map-wrapper .mobile-title.map-title,
+    .form-wrapper .mobile-title.feedback-title {
+        font-size: 28px;
+    }
+    
+    .map-wrapper iframe {
+        height: 250px;
+    }
+    
+    .form-group {
+        margin-bottom: 18px;
+    }
+    
+    .form-group label {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
+    }
+    
+    .submit-btn {
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .contacts-header {
+        padding: 15px 12px 10px 12px;
+    }
+    
+    .contacts-header h1 {
+        font-size: 24px;
+    }
+
+    .contact-block {
+        padding: 18px 12px;
+        max-width: 320px;
+    }
+    
+    .contact-block img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+    
+    .contact-block h2 {
+        font-size: 22px;
+    }
+
+    .contact-block p {
+        font-size: 15px;
+    }
+
+    .contact-block .contact-note {
+        font-size: 13px;
+    }
+    
+    .mobile-title {
+        font-size: 24px;
+    }
+    
+    .map-wrapper .mobile-title.map-title,
+    .form-wrapper .mobile-title.feedback-title {
+        font-size: 24px;
+    }
+    
+    .map-wrapper iframe {
+        height: 220px;
+    }
+    
+    .form-group label {
+        font-size: 15px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+    
+    .submit-btn {
+        font-size: 15px;
+        padding: 8px 14px;
+    }
+}
+
+@media (max-width: 320px) {
+    .contacts-header h1 {
+        font-size: 22px;
+    }
+    
+    .contact-block h2 {
+        font-size: 20px;
+    }
+    
+    .mobile-title {
+        font-size: 22px;
+    }
+    
+    .map-wrapper .mobile-title.map-title,
+    .form-wrapper .mobile-title.feedback-title {
+        font-size: 22px;
+    }
+    
+    .map-wrapper iframe {
+        height: 200px;
+    }
+    
+    .contact-block {
+        max-width: 280px;
+    }
+}
