@@ -1,0 +1,1042 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-color: #DFD8CB;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero h1 {
+    font-size: 140px;
+    color: #4F3E35;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(223, 216, 203, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 48px;
+    color: #4F3E35;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(223, 216, 203, 0.3);
+}
+
+.hero-rectangle {
+    width: 280px;
+    height: 60px;
+    border: 2px solid #4F3E35;
+    background-color: transparent;
+}
+
+.hero-button {
+    font-size: 32px;
+    color: #4F3E35;
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+    margin-top: -50px;
+    text-shadow: 2px 2px 4px rgba(223, 216, 203, 0.3);
+}
+
+.thick-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #4F3E35;
+    margin: 0;
+}
+
+section {
+    padding: 40px 80px;
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+    font-weight: normal;
+}
+
+.about {
+    text-align: center;
+    padding: 40px 80px;
+    position: relative;
+}
+
+.about::before,
+.about::after {
+    content: '';
+    position: absolute;
+    top: 27%;
+    width: 625px;
+    height: 1px;
+    background-color: #4F3E35;
+    transform: translateY(-50%);
+}
+
+.about::before {
+    left: 20px;
+}
+
+.about::after {
+    right: 20px;
+}
+
+.about h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: normal;
+    text-transform: capitalize;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.about p {
+    font-size: 28px;
+    line-height: 1.4;
+    max-width: 1000px;
+    margin: 0 auto;
+    letter-spacing: 0.02em;
+    font-family: 'Georgia', serif;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.about p::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1477px;
+    height: 1px;
+    background-color: #4F3E35;
+}
+
+.products {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    padding: 40px 80px 40px 80px;
+}
+
+.product-card {
+    width: 500px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.product-label {
+    font-size: 48px;
+    text-transform: lowercase;
+    color: #4F3E35;
+    letter-spacing: 0.02em;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(223, 216, 203, 0.5);
+    padding: 10px 0;
+}
+
+.discounts {
+    text-align: center;
+    padding: 40px 80px;
+    position: relative;
+}
+
+.discounts::before,
+.discounts::after {
+    content: '';
+    position: absolute;
+    top: 27%;
+    width: 460px;
+    height: 1px;
+    background-color: #4F3E35;
+    transform: translateY(-50%);
+}
+
+.discounts::before {
+    left: 20px;
+}
+
+.discounts::after {
+    right: 20px;
+}
+
+.discounts h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.discounts p {
+    font-size: 28px;
+    line-height: 1.4;
+    max-width: 900px;
+    margin: 0 auto;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.discounts p::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1477px;
+    height: 1px;
+    background-color: #4F3E35;
+}
+
+.reviews {
+    padding: 60px 80px;
+    position: relative;
+}
+
+.reviews h2 {
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: normal;
+    color: #4F3E35;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.review-slide {
+    flex: 0 0 100%;
+    padding: 20px 0;
+    outline: none;
+}
+
+.review-slide-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background: rgba(79, 62, 53, 0.03);
+    border-radius: 30px;
+    padding: 40px;
+    transition: all 0.3s ease;
+}
+
+.review-slide-image {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(79, 62, 53, 0.1);
+}
+
+.review-slide-text {
+    flex: 1;
+}
+
+.review-slide-text h3 {
+    font-family: 'Georgia';
+    font-size: 36px;
+    color: #4F3E35;
+    margin-bottom: 15px;
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+}
+
+.review-slide-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #4F3E35;
+}
+
+.review-slide-text p {
+    font-family: 'Arial';
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: #4F3E35;
+    letter-spacing: 0.02em;
+}
+
+.slider-prev,
+.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border: 2px solid #4F3E35;
+    background: transparent;
+    color: #4F3E35;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    display: none;
+}
+
+.slider-prev {
+    left: -70px;
+}
+
+.slider-next {
+    right: -70px;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+    background: #4F3E35;
+    color: #DFD8CB;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    list-style: none;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #4F3E35;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #4F3E35;
+    transform: scale(1.2);
+}
+
+@media (max-width: 1200px) {
+    section { 
+        padding: 35px 50px; 
+    }
+    
+    h2 {
+        font-size: 38px;
+    }
+    
+    .hero {
+        height: 450px;
+    }
+    
+    .hero h1 {
+        font-size: 110px;
+        margin-bottom: 5px;
+    }
+    
+    .hero-subtitle {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
+    
+    .hero-rectangle {
+        width: 260px;
+        height: 55px;
+    }
+    
+    .hero-button {
+        font-size: 30px;
+        margin-top: -45px;
+    }
+    
+    .about {
+        padding: 35px 50px;
+    }
+    
+    .about h2 {
+        font-size: 38px;
+        margin-bottom: 20px;
+    }
+    
+    .about p {
+        font-size: 26px;
+        max-width: 900px;
+    }
+    
+    .about::before,
+    .about::after {
+        width: 400px;
+        top: 25%;
+    }
+    
+    .about p::after {
+        width: 1000px;
+    }
+    
+    .products {
+        gap: 50px;
+        padding: 35px 50px 60px 50px;
+    }
+    
+    .product-card {
+        width: 400px;
+        height: 320px;
+    }
+    
+    .product-label {
+        font-size: 42px;
+        bottom: 25px;
+    }
+    
+    .discounts {
+        padding: 35px 50px;
+    }
+    
+    .discounts h2 {
+        font-size: 38px;
+        margin-bottom: 15px;
+    }
+    
+    .discounts p {
+        font-size: 26px;
+        max-width: 800px;
+    }
+    
+    .discounts::before,
+    .discounts::after {
+        width: 320px;
+        top: 25%;
+    }
+    
+    .discounts p::after {
+        width: 1000px;
+    }
+    
+    .reviews {
+        padding: 50px 50px;
+    }
+    
+    .reviews h2 {
+        font-size: 70px;
+        margin-bottom: 40px;
+    }
+    
+    .review-slide-content {
+        gap: 40px;
+        padding: 35px;
+    }
+    
+    .review-slide-image {
+        width: 180px;
+        height: 220px;
+    }
+    
+    .review-slide-text h3 {
+        font-size: 32px;
+    }
+    
+    .review-slide-text p {
+        font-size: 20px;
+    }
+    
+    .slider-prev {
+        left: -50px;
+    }
+    
+    .slider-next {
+        right: -50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    section { 
+        padding: 30px 40px; 
+    }
+    
+    h2 {
+        font-size: 36px;
+    }
+    
+    .hero {
+        height: 400px;
+    }
+    
+    .hero h1 {
+        font-size: 90px;
+    }
+    
+    .hero-subtitle {
+        font-size: 36px;
+    }
+    
+    .hero-rectangle {
+        width: 240px;
+        height: 50px;
+    }
+    
+    .hero-button {
+        font-size: 28px;
+        margin-top: -40px;
+    }
+    
+    .about {
+        padding: 30px 40px;
+    }
+    
+    .about h2 {
+        font-size: 36px;
+    }
+    
+    .about p {
+        font-size: 24px;
+        max-width: 800px;
+    }
+    
+    .about::before,
+    .about::after {
+        width: 280px;
+        top: 25%;
+    }
+    
+    .about p::after {
+        width: 800px;
+    }
+    
+    .products {
+        gap: 40px;
+        padding: 30px 40px 50px 40px;
+    }
+    
+    .product-card {
+        width: 350px;
+        height: 280px;
+    }
+    
+    .product-label {
+        font-size: 38px;
+        bottom: 20px;
+    }
+    
+    .discounts {
+        padding: 30px 40px;
+    }
+    
+    .discounts h2 {
+        font-size: 36px;
+    }
+    
+    .discounts p {
+        font-size: 24px;
+        max-width: 700px;
+    }
+    
+    .discounts::before,
+    .discounts::after {
+        width: 220px;
+        top: 25%;
+    }
+    
+    .discounts p::after {
+        width: 800px;
+    }
+    
+    .reviews {
+        padding: 40px 40px;
+    }
+    
+    .reviews h2 {
+        font-size: 60px;
+        margin-bottom: 35px;
+    }
+    
+    .review-slide-content {
+        gap: 35px;
+        padding: 30px;
+    }
+    
+    .review-slide-image {
+        width: 160px;
+        height: 200px;
+    }
+    
+    .review-slide-text h3 {
+        font-size: 30px;
+    }
+    
+    .review-slide-text p {
+        font-size: 19px;
+    }
+    
+    .slider-prev {
+        left: -30px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .slider-next {
+        right: -30px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 900px) {
+    .about::before,
+    .about::after {
+        width: 200px;
+    }
+    
+    .discounts::before,
+    .discounts::after {
+        width: 150px;
+    }
+    
+    .products {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+    
+    .product-card {
+        width: 80%;
+        max-width: 450px;
+        height: auto;
+        aspect-ratio: 5/4;
+    }
+    
+    .slider-prev,
+    .slider-next {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    section { 
+        padding: 25px 20px; 
+    }
+    
+    h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .hero {
+        height: 350px;
+    }
+    
+    .hero h1 {
+        font-size: 70px;
+    }
+    
+    .hero-subtitle {
+        font-size: 30px;
+    }
+    
+    .hero-rectangle {
+        width: 200px;
+        height: 45px;
+    }
+    
+    .hero-button {
+        font-size: 24px;
+        margin-top: -35px;
+    }
+    
+    .about {
+        padding: 25px 20px;
+    }
+    
+    .about h2 {
+        font-size: 32px;
+    }
+    
+    .about p {
+        font-size: 22px;
+        padding-bottom: 20px;
+    }
+    
+    .about p::after {
+        width: 90%;
+    }
+    
+    .about::before,
+    .about::after {
+        display: none;
+    }
+    
+    .products {
+        gap: 40px;
+        padding: 25px 20px 40px 20px;
+    }
+    
+    .product-card {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 5/4;
+    }
+    
+    .product-label {
+        font-size: 32px;
+        bottom: 15px;
+    }
+    
+    .discounts {
+        padding: 25px 20px;
+    }
+    
+    .discounts h2 {
+        font-size: 28px;
+    }
+    
+    .discounts p {
+        font-size: 22px;
+        padding-bottom: 20px;
+    }
+    
+    .discounts p::after {
+        width: 90%;
+    }
+    
+    .discounts::before,
+    .discounts::after {
+        display: none;
+    }
+    
+    .reviews {
+        padding: 30px 20px;
+    }
+    
+    .reviews h2 {
+        font-size: 48px;
+        margin-bottom: 25px;
+    }
+    
+    .review-slide-content {
+        flex-direction: column;
+        gap: 25px;
+        padding: 25px;
+        text-align: center;
+    }
+    
+    .review-slide-text h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .review-slide-image {
+        width: 140px;
+        height: 180px;
+    }
+    
+    .review-slide-text h3 {
+        font-size: 28px;
+    }
+    
+    .review-slide-text p {
+        font-size: 18px;
+    }
+    
+    .slider-prev,
+    .slider-next {
+        display: none;
+    }
+    
+    .slider-dots {
+        margin-top: 20px;
+    }
+    
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    section { 
+        padding: 20px 15px; 
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    .hero {
+        height: 300px;
+    }
+    
+    .hero h1 {
+        font-size: 55px;
+    }
+    
+    .hero-subtitle {
+        font-size: 26px;
+    }
+    
+    .hero-rectangle {
+        width: 180px;
+        height: 40px;
+    }
+    
+    .hero-button {
+        font-size: 22px;
+        margin-top: -30px;
+    }
+    
+    .about h2 {
+        font-size: 28px;
+    }
+    
+    .about p {
+        font-size: 20px;
+    }
+    
+    .product-label {
+        font-size: 28px;
+        bottom: 12px;
+    }
+    
+    .discounts h2 {
+        font-size: 24px;
+    }
+    
+    .discounts p {
+        font-size: 20px;
+    }
+    
+    .reviews h2 {
+        font-size: 40px;
+    }
+    
+    .review-slide-content {
+        padding: 20px;
+    }
+    
+    .review-slide-image {
+        width: 120px;
+        height: 150px;
+    }
+    
+    .review-slide-text h3 {
+        font-size: 26px;
+    }
+    
+    .review-slide-text p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    section { 
+        padding: 18px 12px; 
+    }
+    
+    h2 {
+        font-size: 26px;
+    }
+    
+    .hero {
+        height: 280px;
+    }
+    
+    .hero h1 {
+        font-size: 45px;
+    }
+    
+    .hero-subtitle {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+    
+    .hero-rectangle {
+        width: 160px;
+        height: 36px;
+    }
+    
+    .hero-button {
+        font-size: 20px;
+        margin-top: -26px;
+    }
+    
+    .about h2 {
+        font-size: 26px;
+    }
+    
+    .about p {
+        font-size: 18px;
+    }
+    
+    .product-label {
+        font-size: 26px;
+        bottom: 10px;
+    }
+    
+    .discounts h2 {
+        font-size: 22px;
+    }
+    
+    .discounts p {
+        font-size: 18px;
+    }
+    
+    .reviews h2 {
+        font-size: 36px;
+    }
+    
+    .review-slide-content {
+        padding: 18px;
+    }
+    
+    .review-slide-image {
+        width: 100px;
+        height: 130px;
+    }
+    
+    .review-slide-text h3 {
+        font-size: 24px;
+    }
+    
+    .review-slide-text p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    section { 
+        padding: 15px 10px; 
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    .hero {
+        height: 250px;
+    }
+    
+    .hero h1 {
+        font-size: 38px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .hero-rectangle {
+        width: 140px;
+        height: 32px;
+    }
+    
+    .hero-button {
+        font-size: 18px;
+        margin-top: -22px;
+    }
+    
+    .about h2 {
+        font-size: 24px;
+    }
+    
+    .about p {
+        font-size: 16px;
+    }
+    
+    .product-label {
+        font-size: 24px;
+        bottom: 8px;
+    }
+    
+    .discounts h2 {
+        font-size: 20px;
+    }
+    
+    .discounts p {
+        font-size: 16px;
+    }
+    
+    .reviews h2 {
+        font-size: 32px;
+    }
+    
+    .review-slide-content {
+        padding: 15px;
+    }
+    
+    .review-slide-image {
+        width: 90px;
+        height: 120px;
+    }
+    
+    .review-slide-text h3 {
+        font-size: 22px;
+    }
+    
+    .review-slide-text p {
+        font-size: 15px;
+    }
+}

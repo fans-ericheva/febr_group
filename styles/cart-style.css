@@ -1,0 +1,954 @@
+/* cart-style.css */
+
+.cart-header {
+    padding: 40px 80px 20px 60px;
+}
+
+.cart-header h1 {
+    font-family: "Georgia", serif;
+    font-size: 80px;
+    font-weight: normal;
+    color: #4f3e35;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.cart-header h1 span {
+    font-size: 24px;
+    margin-left: 20px;
+    color: #4f3e35;
+    opacity: 0.7;
+}
+
+/* Пустая корзина */
+.cart-empty {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: rgba(79, 62, 53, 0.03);
+    margin: 40px 80px;
+    border-radius: 25px;
+}
+
+.cart-empty p {
+    font-family: "Georgia", serif;
+    font-size: 28px;
+    color: #4f3e35;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.cart-empty-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cart-empty a {
+    display: inline-block;
+    font-family: "Georgia", serif;
+    font-size: 20px;
+    color: #dfd8cb;
+    background-color: #4f3e35;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    transition: opacity 0.3s ease;
+}
+
+.cart-empty a:hover {
+    opacity: 0.8;
+}
+
+/* Основной контейнер корзины */
+.cart-container {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    padding: 30px 80px 80px 80px;
+}
+
+/* Список товаров */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 25px;
+    padding: 25px;
+    background-color: rgba(79, 62, 53, 0.02);
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: rgba(79, 62, 53, 0.05);
+}
+
+.cart-item-image-wrapper {
+    width: 120px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.cart-item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cart-item-info h3 {
+    font-family: "Georgia", serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: #4f3e35;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.cart-item-details {
+    display: flex;
+    gap: 25px;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #4f3e35;
+    opacity: 0.8;
+}
+
+.cart-item-color {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-color-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(79, 62, 53, 0.3);
+}
+
+.cart-item-size {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.cart-item-price {
+    font-family: "Georgia", serif;
+    font-size: 24px;
+    color: #4f3e35;
+    font-weight: bold;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #dfd8cb;
+    padding: 8px 15px;
+    border-radius: 30px;
+    border: 1px solid #4f3e35;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #4f3e35;
+    font-family: "Georgia", serif;
+    transition: opacity 0.2s;
+}
+
+.quantity-btn:hover {
+    opacity: 0.6;
+}
+
+.quantity-value {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    color: #4f3e35;
+    min-width: 30px;
+    text-align: center;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #4f3e35;
+    cursor: pointer;
+    padding: 5px;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.cart-item-remove:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Боковая панель с итогами */
+.cart-summary {
+    background-color: #4f3e35;
+    border-radius: 25px;
+    padding: 30px;
+    color: #dfd8cb;
+    height: fit-content;
+    position: sticky;
+    top: 110px;
+}
+
+.cart-summary h2 {
+    font-family: "Georgia", serif;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #dfd8cb;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(223, 216, 203, 0.2);
+}
+
+.summary-row.total {
+    border-bottom: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #dfd8cb;
+    font-size: 24px;
+    font-family: "Georgia", serif;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 18px;
+    background-color: #dfd8cb;
+    color: #4f3e35;
+    border: none;
+    font-family: "Georgia", serif;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 30px;
+    transition: opacity 0.3s ease;
+}
+
+.checkout-btn:hover {
+    opacity: 0.8;
+}
+
+.clear-cart-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    color: #dfd8cb;
+    border: 1px solid #dfd8cb;
+    font-family: "Georgia", serif;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+    background-color: #dfd8cb;
+    color: #4f3e35;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+    .cart-header {
+        padding: 35px 60px 15px 60px;
+    }
+
+    .cart-container {
+        padding: 30px 60px 70px 60px;
+        gap: 30px;
+    }
+
+    .cart-empty {
+        margin: 40px 60px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cart-header h1 {
+        font-size: 60px;
+    }
+
+    .cart-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-summary {
+        position: static;
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .cart-item {
+        grid-template-columns: 100px 1fr auto;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .cart-header {
+        padding: 30px 40px 15px 40px;
+    }
+
+    .cart-container {
+        padding: 30px 40px 60px 40px;
+    }
+
+    .cart-empty {
+        margin: 40px 40px;
+        padding: 60px 20px;
+    }
+
+    .cart-empty p {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-header {
+        padding: 25px 20px 15px 20px;
+    }
+
+    .cart-header h1 {
+        font-size: 42px;
+    }
+
+    .cart-header h1 span {
+        font-size: 18px;
+    }
+
+    .cart-container {
+        padding: 20px 20px 50px 20px;
+    }
+
+    .cart-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .cart-item-image-wrapper {
+        width: 100%;
+        height: 200px;
+    }
+
+    .cart-item-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .cart-item-actions {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cart-empty {
+        margin: 30px 20px;
+        padding: 50px 15px;
+    }
+
+    .cart-empty p {
+        font-size: 20px;
+    }
+
+    .cart-empty a {
+        font-size: 18px;
+        padding: 12px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-header h1 {
+        font-size: 36px;
+    }
+
+    .cart-item-info h3 {
+        font-size: 18px;
+    }
+
+    .cart-item-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cart-item-price {
+        font-size: 20px;
+    }
+
+    .cart-summary h2 {
+        font-size: 28px;
+    }
+
+    .summary-row {
+        font-size: 16px;
+    }
+
+    .summary-row.total {
+        font-size: 20px;
+    }
+}
+
+/* Добавьте в конец файла cart-style.css */
+
+/* Стили для выпадающих списков */
+.cart-item-selectors {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.cart-item-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    color: #4f3e35;
+}
+
+.cart-item-selector select {
+    padding: 6px 12px;
+    border: 1px solid #4f3e35;
+    background-color: #dfd8cb;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    color: #4f3e35;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.cart-item-selector select:hover {
+    background-color: rgba(79, 62, 53, 0.1);
+}
+
+.cart-item-selector select:focus {
+    border-color: #4f3e35;
+    box-shadow: 0 0 0 2px rgba(79, 62, 53, 0.2);
+}
+
+/* Стили для формы оформления заказа */
+.checkout-form-container {
+    grid-column: 1 / -1;
+    background-color: #4f3e35;
+    border-radius: 25px;
+    padding: 30px;
+    color: #dfd8cb;
+    margin-top: 40px;
+}
+
+.checkout-form-container h2 {
+    font-family: "Georgia", serif;
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #dfd8cb;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+}
+
+.checkout-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #dfd8cb;
+    opacity: 0.9;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 12px 15px;
+    border: 1px solid rgba(223, 216, 203, 0.3);
+    background-color: rgba(223, 216, 203, 0.1);
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #dfd8cb;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #dfd8cb;
+    background-color: rgba(223, 216, 203, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(223, 216, 203, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-group select option {
+    background-color: #4f3e35;
+    color: #dfd8cb;
+}
+
+/* Строка с доставкой и итогом в форме */
+.delivery-summary-row {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin: 10px 0;
+    border-top: 1px solid rgba(223, 216, 203, 0.2);
+    border-bottom: 1px solid rgba(223, 216, 203, 0.2);
+}
+
+.delivery-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.delivery-info span:first-child {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.delivery-info .delivery-price {
+    font-family: "Georgia", serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.total-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: right;
+}
+
+.total-info span:first-child {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.total-info .total-price {
+    font-family: "Georgia", serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #dfd8cb;
+}
+
+/* Кнопка оформления заказа в форме */
+.form-checkout-btn {
+    grid-column: span 2;
+    padding: 18px;
+    background-color: #dfd8cb;
+    color: #4f3e35;
+    border: none;
+    font-family: "Georgia", serif;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-checkout-btn:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-checkout-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Адаптив для формы */
+@media (max-width: 768px) {
+    .checkout-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width,
+    .delivery-summary-row,
+    .form-checkout-btn {
+        grid-column: span 1;
+    }
+
+    .delivery-summary-row {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .total-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-item-selectors {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cart-item-selector {
+        width: 100%;
+    }
+
+    .cart-item-selector select {
+        flex: 1;
+    }
+}
+
+/* Добавьте в конец файла cart-style.css */
+
+/* Контейнер для подсказок */
+.form-hint-container {
+    min-height: 60px;
+    margin: 10px 0;
+}
+
+.form-hint {
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    animation: slideDown 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-hint.success {
+    background-color: rgba(46, 125, 50, 0.2);
+    color: #81c784;
+    border: 1px solid #81c784;
+}
+
+.form-hint.error {
+    background-color: rgba(211, 47, 47, 0.2);
+    color: #ef5350;
+    border: 1px solid #ef5350;
+}
+
+.form-hint.warning {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #ffb74d;
+    border: 1px solid #ffb74d;
+}
+
+.form-hint.info {
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #64b5f6;
+    border: 1px solid #64b5f6;
+}
+
+.form-hint i {
+    font-size: 18px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Обновленные стили для формы */
+.checkout-form-container {
+    background-color: #4f3e35;
+    border-radius: 25px;
+    padding: 40px;
+    color: #dfd8cb;
+    margin-top: 30px;
+}
+
+.checkout-form-container h2 {
+    font-family: "Georgia", serif;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #dfd8cb;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+}
+
+.checkout-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #dfd8cb;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.required-star {
+    color: #ef5350;
+    font-size: 18px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 14px 18px;
+    border: 2px solid rgba(223, 216, 203, 0.3);
+    background-color: rgba(223, 216, 203, 0.1);
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #dfd8cb;
+    border-radius: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #dfd8cb;
+    background-color: rgba(223, 216, 203, 0.15);
+    box-shadow: 0 0 0 3px rgba(223, 216, 203, 0.1);
+}
+
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+    border-color: #ef5350;
+    background-color: rgba(211, 47, 47, 0.1);
+}
+
+.form-group input.valid,
+.form-group textarea.valid,
+.form-group select.valid {
+    border-color: #81c784;
+    background-color: rgba(46, 125, 50, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(223, 216, 203, 0.4);
+    font-style: italic;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group select option {
+    background-color: #4f3e35;
+    color: #dfd8cb;
+    padding: 10px;
+}
+
+/* Строка с итогами */
+.delivery-summary-row {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    margin: 15px 0;
+    border-top: 2px solid rgba(223, 216, 203, 0.2);
+    border-bottom: 2px solid rgba(223, 216, 203, 0.2);
+}
+
+.delivery-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.delivery-info span:first-child {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.delivery-info .delivery-price {
+    font-family: "Georgia", serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #dfd8cb;
+}
+
+.total-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+}
+
+.total-info span:first-child {
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.total-info .total-price {
+    font-family: "Georgia", serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #dfd8cb;
+}
+
+/* Кнопка оформления заказа */
+.form-checkout-btn {
+    grid-column: span 2;
+    padding: 20px;
+    background-color: #dfd8cb;
+    color: #4f3e35;
+    border: none;
+    font-family: "Georgia", serif;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 40px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid transparent;
+}
+
+.form-checkout-btn:hover:not(:disabled) {
+    background-color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-checkout-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .checkout-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width,
+    .delivery-summary-row,
+    .form-checkout-btn {
+        grid-column: span 1;
+    }
+
+    .delivery-summary-row {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .total-info {
+        text-align: center;
+    }
+
+    .checkout-form-container {
+        padding: 25px;
+    }
+
+    .checkout-form-container h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .delivery-info .delivery-price {
+        font-size: 20px;
+    }
+
+    .total-info .total-price {
+        font-size: 28px;
+    }
+}

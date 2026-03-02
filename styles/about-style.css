@@ -1,0 +1,297 @@
+.about-header {
+    padding: 40px 80px 20px 60px;
+}
+
+.about-header h1 {
+    font-family: 'Georgia', serif;
+    font-size: 80px;
+    font-weight: normal;
+    color: #4F3E35;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-content-section {
+    background-color: #4F3E35;
+    padding: 55px 60px;
+    margin: 0;
+}
+
+.about-content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-content-wrapper h2 {
+    font-family: 'Georgia', serif;
+    font-size: 45px;
+    font-weight: bold;
+    color: #DFD8CB;
+    letter-spacing: 0.02em;
+    margin-bottom: 25px;
+    text-transform: none;
+}
+
+.about-description {
+    font-family: 'Georgia', serif;
+    font-size: 25px;
+    line-height: 1.6;
+    color: #DFD8CB;
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+    max-width: 1200px;
+}
+
+.philosophy-text {
+    font-family: 'Georgia', serif;
+    font-size: 25px;
+    line-height: 1.6;
+    color: #DFD8CB;
+    letter-spacing: 0.02em;
+    margin-bottom: 25px;
+    max-width: 1200px;
+}
+
+.philosophy-text:last-of-type {
+    margin-bottom: 0;
+}
+
+.philosophy-text span {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.faq-section {
+    padding: 60px 80px 80px 60px;
+}
+
+.faq-section h2 {
+    font-family: 'Georgia', serif;
+    font-size: 80px;
+    font-weight: normal;
+    color: #4F3E35;
+    letter-spacing: 0.02em;
+    margin-bottom: 50px;
+}
+
+.faq-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+}
+
+.faq-item {
+    background-color: #4F3E35;
+    border-radius: 25px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.faq-item h3 {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #DFD8CB;
+    letter-spacing: 0.02em;
+    margin-bottom: 15px;
+}
+
+.faq-item p {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #DFD8CB;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 1200px) {
+    .about-header {
+        padding: 35px 60px 15px 60px;
+    }
+
+    .about-content-section {
+        padding: 50px 60px;
+    }
+
+    .faq-section {
+        padding: 50px 60px 70px 60px;
+    }
+
+    .faq-list {
+        gap: 25px;
+    }
+
+    .faq-item {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-header h1 {
+        font-size: 42px;
+    }
+
+    .about-content-wrapper h2 {
+        font-size: 28px;
+    }
+
+    .about-description {
+        font-size: 18px;
+    }
+
+    .philosophy-text {
+        font-size: 16px;
+    }
+
+    .faq-section h2 {
+        font-size: 42px;
+    }
+
+    .faq-list {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-item h3 {
+        font-size: 22px;
+    }
+
+    .faq-item p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-header {
+        padding: 30px 40px 15px 40px;
+    }
+
+    .about-content-section {
+        padding: 40px 40px;
+    }
+
+    .faq-section {
+        padding: 40px 40px 60px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-header {
+        padding: 25px 20px 15px 20px;
+    }
+
+    .about-header h1 {
+        font-size: 36px;
+    }
+
+    .about-content-section {
+        padding: 35px 20px;
+    }
+
+    .about-content-wrapper h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .about-description {
+        font-size: 17px;
+        margin-bottom: 30px;
+    }
+
+    .philosophy-text {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .faq-section {
+        padding: 35px 20px 50px 20px;
+    }
+
+    .faq-section h2 {
+        font-size: 36px;
+        margin-bottom: 35px;
+    }
+
+    .faq-item {
+        padding: 25px;
+    }
+
+    .faq-item h3 {
+        font-size: 20px;
+    }
+
+    .faq-item p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-header h1 {
+        font-size: 32px;
+    }
+
+    .about-content-wrapper h2 {
+        font-size: 24px;
+    }
+
+    .about-description {
+        font-size: 16px;
+    }
+
+    .philosophy-text {
+        font-size: 14px;
+    }
+
+    .faq-section h2 {
+        font-size: 32px;
+    }
+
+    .faq-item {
+        padding: 20px;
+    }
+
+    .faq-item h3 {
+        font-size: 18px;
+    }
+
+    .faq-item p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-header h1 {
+        font-size: 28px;
+    }
+
+    .about-content-wrapper h2 {
+        font-size: 22px;
+    }
+
+    .about-description {
+        font-size: 15px;
+    }
+
+    .philosophy-text {
+        font-size: 13px;
+    }
+
+    .faq-section h2 {
+        font-size: 28px;
+    }
+
+    .faq-item {
+        padding: 18px;
+    }
+
+    .faq-item h3 {
+        font-size: 16px;
+    }
+
+    .faq-item p {
+        font-size: 13px;
+    }
+}

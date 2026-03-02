@@ -1,11 +1,333 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Hello</h1>
-</body>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Larella</title>
+    <link rel="stylesheet" href="styles\global-style.css" />
+    <link rel="stylesheet" href="styles\index-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="burger-overlay"></div>
+    <div class="burger-menu">
+      <div class="burger-header">
+        <div class="burger-logo">LA</div>
+        <div class="burger-close">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+
+      <div class="burger-content">
+        <div class="burger-section">
+          <div class="section-header">
+            <span>Раздел</span>
+            <img
+              src="images/close.png"
+              alt="Закрыть"
+              class="section-close-icon"
+            />
+          </div>
+          <div class="section-content">
+            <a href="catalog-man.html">Мужчинам</a>
+            <a href="catalog-wom.html">Женщинам</a>
+          </div>
+        </div>
+
+        <div class="burger-section">
+          <a href="delivery.html" class="section-header">
+            <span>Доставка</span>
+          </a>
+        </div>
+
+        <div class="burger-section">
+          <a href="about.html" class="section-header">
+            <span>О нас</span>
+          </a>
+        </div>
+
+        <div class="burger-section">
+          <a href="contacts.html" class="section-header">
+            <span>Контакты</span>
+          </a>
+        </div>
+
+        <div class="burger-section">
+          <a href="admin.html" class="section-header">
+            <span>Админ-панель</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="menu-icon" id="menuToggle">
+        <img src="images/menu.png" alt="Меню" class="menu-icon-img" />
+      </div>
+      <nav class="nav-links">
+        <a href="catalog-man.html">Мужчинам</a>
+        <a href="catalog-wom.html">Женщинам</a>
+      </nav>
+      <div class="logo">LA</div>
+      <div class="header-icons">
+        <div class="icon-favorite">
+          <a href="favorites.html">
+            <img src="images/izbrannoe.png" alt="Избранное" class="icon-img" />
+          </a>
+        </div>
+        <div class="icon-bag">
+          <a href="cart.html">
+            <img src="images/bag.png" alt="Корзина" class="icon-img" />
+          </a>
+        </div>
+        <div class="icon-cabinet">
+          <a href="account.html"
+            ><img
+              src="images/cabinet.png"
+              alt="Личный кабинет"
+              class="icon-img"
+          /></a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <img src="images/hero-bg.png" alt="фон-главная" class="hero-bg" />
+      <div class="hero-content">
+        <h1>Larella</h1>
+        <p class="hero-subtitle">Новая коллекция</p>
+        <div class="hero-rectangle"></div>
+        <a href="#catal" class="hero-button">Изучить</a>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>О нас</h2>
+      <i id="catal"></i>
+      <p>
+        Larella — современный взгляд на роскошь.<br />Мы верим в эстетику,
+        которая говорит тихо, но остаётся в памяти.
+      </p>
+    </section>
+
+    <section class="products">
+      <div class="product-card">
+        <a href="catalog-man.html"
+          ><img
+            src="images/man-cat.png"
+            alt="Мужская коллекция"
+            class="product-image"
+          />
+          <span class="product-label">мужчинам</span></a
+        >
+      </div>
+      <div class="product-card">
+        <a href="catalog-wom.html"
+          ><img
+            src="images/wom-cat.png"
+            alt="Женская коллекция"
+            class="product-image"
+          />
+          <span class="product-label">женщинам</span></a
+        >
+      </div>
+    </section>
+
+    <section class="discounts">
+      <h2>Seasonal Discounts</h2>
+      <p>
+        Особые условия на избранные изделия из текущей коллекции.<br />Количество
+        ограничено.
+      </p>
+    </section>
+
+    <section class="reviews">
+      <h2>Отзывы</h2>
+
+      <div class="slider-container">
+        <div class="slider-track">
+          <div class="review-slide">
+            <div class="review-slide-content">
+              <img
+                src="images/alex.png"
+                alt="Александр"
+                class="review-slide-image"
+              />
+              <div class="review-slide-text">
+                <h3>Александр</h3>
+                <p>
+                  Материал и посадка выше ожиданий. Выглядит современно и
+                  спокойно.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-slide-content">
+              <img
+                src="images/anna.png"
+                alt="Анна"
+                class="review-slide-image"
+              />
+              <div class="review-slide-text">
+                <h3>Анна</h3>
+                <p>
+                  Очень точный крой и красивый цвет — вещь выглядит дорого и
+                  носится легко.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-slide-content">
+              <img
+                src="images/ilya.png"
+                alt="Илья"
+                class="review-slide-image"
+              />
+              <div class="review-slide-text">
+                <h3>Илья</h3>
+                <p>
+                  Хорошо продуманная коллекция, всё сочетается между собой. Это
+                  редкость.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-slide-content">
+              <img
+                src="images/polina.png"
+                alt="Полина"
+                class="review-slide-image"
+              />
+              <div class="review-slide-text">
+                <h3>Полина</h3>
+                <p>Тихая роскошь без лишнего шума. Именно то, что я искала.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-slide-content">
+              <img
+                src="images/daria.png"
+                alt="Дарья"
+                class="review-slide-image"
+              />
+              <div class="review-slide-text">
+                <h3>Дарья</h3>
+                <p>
+                  Одежда, которая не спорит с тобой, а подчёркивает. Очень
+                  приятные детали.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-slide-content">
+              <img
+                src="images/katya.png"
+                alt="Екатерина"
+                class="review-slide-image"
+              />
+              <div class="review-slide-text">
+                <h3>Екатерина</h3>
+                <p>
+                  Минимализм, в котором есть характер. Хочется возвращаться к
+                  этим вещам снова.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-slide-content">
+              <img
+                src="images/michail.png"
+                alt="Михаил"
+                class="review-slide-image"
+              />
+              <div class="review-slide-text">
+                <h3>Михаил</h3>
+                <p>
+                  Редко встречаю одежду, где так хорошо сидит пиджак без
+                  доработок. Качество чувствуется сразу.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="slider-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+        <span class="dot" data-index="4"></span>
+        <span class="dot" data-index="5"></span>
+        <span class="dot" data-index="6"></span>
+      </div>
+    </section>
+
+    <div class="thick-divider"></div>
+
+    <footer class="footer">
+      <div class="footer-column brand">
+        <h3>LARELLA</h3>
+        <p class="brand-description">
+          Одежда вне трендов и гендера.<br />Чистый дизайн, выразительный цвет и
+          безупречный крой.
+        </p>
+        <div class="social-icons">
+          <a href="#" class="social-circle"><i class="fab fa-vk"></i></a>
+          <a href="#" class="social-circle"
+            ><i class="fab fa-telegram-plane"></i
+          ></a>
+          <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Покупателям</h3>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="favorites.html">Избранное</a></li>
+          <li><a href="cart.html">Корзина</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="delivery.html">Доставка</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Помощь</h3>
+        <ul>
+          <li>Вопросы и ответы</li>
+          <li>Способы оплаты</li>
+          <li>Доставка и возврат</li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- В конце файла, перед закрывающим тегом </body> -->
+    <script src="./scripts/products-data.js"></script>
+    <script src="./scripts/cart.js"></script>
+    <script src="./scripts/favorites.js"></script>
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>

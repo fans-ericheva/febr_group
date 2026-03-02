@@ -1,0 +1,736 @@
+/* admin-style.css */
+
+.admin-page {
+  padding: 40px 80px 60px 80px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #4f3e35;
+}
+
+.admin-header h1 {
+  font-family: "Georgia", serif;
+  font-size: 60px;
+  font-weight: normal;
+  color: #4f3e35;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.admin-subtitle {
+  font-family: "Arial", sans-serif;
+  font-size: 20px;
+  color: #4f3e35;
+  opacity: 0.7;
+}
+
+/* Вкладки админки */
+.admin-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(79, 62, 53, 0.2);
+  padding-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.admin-tabs .tab-button {
+  background: none;
+  border: 2px solid transparent;
+  font-family: "Georgia", serif;
+  font-size: 18px;
+  color: #4f3e35;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 12px 25px;
+  transition: all 0.3s ease;
+  border-radius: 30px 30px 0 0;
+  margin-bottom: -1px;
+}
+
+.admin-tabs .tab-button:hover {
+  opacity: 0.8;
+  background-color: rgba(79, 62, 53, 0.05);
+}
+
+.admin-tabs .tab-button.active {
+  opacity: 1;
+  font-weight: bold;
+  border: 2px solid #4f3e35;
+  border-bottom-color: #dfd8cb;
+  background-color: #dfd8cb;
+}
+
+/* Стили для секции админа в бургер-меню */
+.burger-section.admin-section {
+  border-color: #4f3e35;
+  background-color: rgba(79, 62, 53, 0.05);
+}
+
+.burger-section.admin-section .section-header span {
+  font-weight: bold;
+}
+
+/* Статистика */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 2px solid #4f3e35;
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+  background-color: rgba(223, 216, 203, 0.5);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(79, 62, 53, 0.1);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  background: #4f3e35;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon i {
+  font-size: 28px;
+  color: #dfd8cb;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-label {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  opacity: 0.7;
+}
+
+.stat-value {
+  font-family: "Georgia", serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #4f3e35;
+}
+
+/* Контейнеры для графиков */
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.chart-box {
+  background-color: rgba(79, 62, 53, 0.02);
+  border: 1px solid rgba(79, 62, 53, 0.2);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.chart-box h3 {
+  font-family: "Georgia", serif;
+  font-size: 24px;
+  font-weight: normal;
+  color: #4f3e35;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(79, 62, 53, 0.2);
+}
+
+/* Стили для статистики категорий */
+.category-stats,
+.size-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stat-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-bar-label {
+  min-width: 100px;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+}
+
+.stat-bar-container {
+  flex: 1;
+  height: 30px;
+  background-color: rgba(79, 62, 53, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background-color: #4f3e35;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  color: #dfd8cb;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.stat-bar-count {
+  min-width: 50px;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  font-weight: bold;
+}
+
+/* Заказы */
+.orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.orders-header h2 {
+  font-family: "Georgia", serif;
+  font-size: 32px;
+  font-weight: normal;
+  color: #4f3e35;
+  margin: 0;
+}
+
+.orders-filter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.filter-select {
+  padding: 10px 20px;
+  border: 2px solid #4f3e35;
+  background-color: #dfd8cb;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  min-width: 200px;
+}
+
+/* Таблица товаров */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.products-header h2 {
+  font-family: "Georgia", serif;
+  font-size: 32px;
+  font-weight: normal;
+  color: #4f3e35;
+  margin: 0;
+}
+
+.products-filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 20px 12px 45px;
+  border: 2px solid #4f3e35;
+  background-color: #dfd8cb;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  border-radius: 30px;
+  outline: none;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4f3e35;
+  opacity: 0.6;
+}
+
+.products-table-container {
+  overflow-x: auto;
+  background-color: rgba(79, 62, 53, 0.02);
+  border-radius: 20px;
+  border: 1px solid rgba(79, 62, 53, 0.2);
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+}
+
+.products-table th {
+  font-family: "Georgia", serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4f3e35;
+  text-align: left;
+  padding: 20px 15px;
+  border-bottom: 2px solid #4f3e35;
+  background-color: rgba(79, 62, 53, 0.05);
+}
+
+.products-table td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(79, 62, 53, 0.1);
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  vertical-align: middle;
+}
+
+.products-table tr:hover {
+  background-color: rgba(79, 62, 53, 0.02);
+}
+
+.product-thumb {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #dfd8cb;
+}
+
+.color-dots {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.admin-color-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #4f3e35;
+}
+
+.sizes-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: rgba(79, 62, 53, 0.1);
+  border-radius: 12px;
+  font-size: 14px;
+  margin: 2px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #4f3e35;
+  background: transparent;
+  color: #4f3e35;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  background-color: #4f3e35;
+  color: #dfd8cb;
+}
+
+.action-btn.delete:hover {
+  background-color: #c62828;
+  border-color: #c62828;
+  color: white;
+}
+
+/* Кнопки админки */
+.admin-btn {
+  padding: 12px 25px;
+  border: 2px solid #4f3e35;
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-btn.primary {
+  background-color: #4f3e35;
+  color: #dfd8cb;
+}
+
+.admin-btn.primary:hover {
+  background-color: #5f4e45;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 62, 53, 0.3);
+}
+
+.admin-btn.secondary {
+  background-color: transparent;
+  color: #4f3e35;
+}
+
+.admin-btn.secondary:hover {
+  background-color: rgba(79, 62, 53, 0.1);
+}
+
+/* Форма добавления товара */
+.admin-form {
+  background-color: rgba(79, 62, 53, 0.02);
+  border: 1px solid rgba(79, 62, 53, 0.2);
+  border-radius: 25px;
+  padding: 40px;
+  max-width: 1000px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 14px 18px;
+  border: 2px solid rgba(79, 62, 53, 0.2);
+  background-color: #dfd8cb;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  border-radius: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #4f3e35;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(79, 62, 53, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.form-message {
+  margin-top: 20px;
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+}
+
+.form-message.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.form-message.error {
+  background-color: rgba(211, 47, 47, 0.1);
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
+/* Загрузка */
+.loading-message {
+  text-align: center;
+  padding: 60px;
+  font-family: "Georgia", serif;
+  font-size: 20px;
+  color: #4f3e35;
+  opacity: 0.6;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+  .admin-page {
+    padding: 30px 40px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-header h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-page {
+    padding: 20px 20px;
+  }
+
+  .admin-header h1 {
+    font-size: 36px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-tabs .tab-button {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .orders-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .products-filters {
+    flex-direction: column;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .admin-form {
+    padding: 25px;
+  }
+}
+
+/* Стили для истории заказов */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.order-item {
+  background-color: rgba(79, 62, 53, 0.02);
+  border: 1px solid rgba(79, 62, 53, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.order-item:hover {
+  background-color: rgba(79, 62, 53, 0.05);
+}
+
+.order-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed rgba(79, 62, 53, 0.2);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.order-number {
+  font-family: "Georgia", serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #4f3e35;
+}
+
+.order-date {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  opacity: 0.7;
+}
+
+.order-status {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: auto;
+  text-transform: uppercase;
+}
+
+.order-status.delivered {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.order-status.processing {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #f57c00;
+  border: 1px solid #f57c00;
+}
+
+.order-products {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.order-product {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.order-product-image {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #dfd8cb;
+}
+
+.order-product-info {
+  flex: 1;
+}
+
+.order-product-name {
+  font-family: "Georgia", serif;
+  font-size: 18px;
+  color: #4f3e35;
+  margin-bottom: 5px;
+}
+
+.order-product-price {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  opacity: 0.8;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(79, 62, 53, 0.2);
+}
+
+.order-total {
+  font-family: "Georgia", serif;
+  font-size: 20px;
+  color: #4f3e35;
+}
+
+.total-price {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.payment-method {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: #4f3e35;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(79, 62, 53, 0.2);
+}
+
+.payment-method i {
+  color: #4f3e35;
+}
+
+.tab-pane {
+  display: none;
+}
+.tab-pane.active {
+  display: block;
+}
