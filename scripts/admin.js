@@ -11,17 +11,18 @@ document.addEventListener("DOMContentLoaded", function () {
   loadProducts();
   loadOrders();
 
-  // Инициализация вкладок
+  // Инициализация
   initTabs();
-
-  // Инициализация поиска и фильтров
   initFilters();
-
-  // Инициализация формы добавления товара
   initAddProductForm();
-});
 
-// account.js - добавьте этот код
+  // Слушаем обновление данных
+  document.addEventListener("productsLoaded", function () {
+    loadProducts();
+    updateStatistics();
+    renderProductsTable();
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   // Переключение вкладок
@@ -63,11 +64,9 @@ function initTabs() {
   const tabPanes = document.querySelectorAll(".tab-pane");
 
   window.switchTab = function (tabId) {
-    // Скрываем все панели и убираем активный класс у кнопок
     tabPanes.forEach((pane) => pane.classList.remove("active"));
     tabButtons.forEach((button) => button.classList.remove("active"));
 
-    // Показываем нужную панель и активируем кнопку
     const activePane = document.getElementById(tabId);
     const activeButton = document.querySelector(
       `.admin-tabs .tab-button[data-tab="${tabId.replace("-tab", "")}"]`,
@@ -76,13 +75,14 @@ function initTabs() {
     if (activePane) activePane.classList.add("active");
     if (activeButton) activeButton.classList.add("active");
 
-    // Обновляем данные при переключении на определенные вкладки
     if (tabId === "stats-tab") {
       updateStatistics();
     } else if (tabId === "orders-tab") {
       renderOrders();
     } else if (tabId === "products-tab") {
       renderProductsTable();
+    } else if (tabId === "add-product-tab") {
+      resetAddProductForm();
     }
   };
 
@@ -100,41 +100,38 @@ window.switchToAddProductTab = function () {
 };
 
 // ЗАГРУЗКА ДАННЫХ
+// Загрузка товаров
 function loadProducts() {
-  // Объединяем товары из мужской и женской категорий
   allProducts = [];
 
-  if (typeof productsData !== "undefined") {
-    if (productsData.men) {
+  if (window.productsData) {
+    if (window.productsData.men) {
       allProducts = allProducts.concat(
-        productsData.men.map((p) => ({ ...p, gender: "men" })),
+        window.productsData.men.map((p) => ({ ...p, gender: "men" })),
       );
     }
-    if (productsData.women) {
+    if (window.productsData.women) {
       allProducts = allProducts.concat(
-        productsData.women.map((p) => ({ ...p, gender: "women" })),
+        window.productsData.women.map((p) => ({ ...p, gender: "women" })),
       );
     }
   }
 
-  // Добавляем поле stock (количество на складе), если его нет
   allProducts = allProducts.map((p) => ({
     ...p,
-    stock: p.stock || Math.floor(Math.random() * 20) + 5, // Случайное количество для демо
+    stock: p.stock || Math.floor(Math.random() * 20) + 5,
   }));
 
-  console.log("Загружено товаров:", allProducts.length);
   updateStatistics();
 }
 
+// Загрузка заказов
 function loadOrders() {
-  // Загружаем заказы из localStorage
   const savedOrders = localStorage.getItem("adminOrders");
 
   if (savedOrders) {
     allOrders = JSON.parse(savedOrders);
   } else {
-    // Создаем демо-заказы для примера
     allOrders = [
       {
         id: "ORD-2024-001",
@@ -165,62 +162,9 @@ function loadOrders() {
         status: "delivered",
         paymentMethod: "Картой онлайн",
       },
-      {
-        id: "ORD-2024-002",
-        date: "2024-05-20T14:45:00",
-        customer: "Петрова Анна",
-        phone: "+7 (999) 765-43-21",
-        email: "anna@example.com",
-        address: "г. Санкт-Петербург, Невский пр., д. 10, кв. 5",
-        items: [
-          {
-            name: "Платье с драпировкой",
-            quantity: 1,
-            price: 17000,
-            size: "S",
-            color: "#C7BBAC",
-          },
-        ],
-        subtotal: 17000,
-        deliveryPrice: 300,
-        total: 17300,
-        status: "processing",
-        paymentMethod: "Наличными при получении",
-      },
-      {
-        id: "ORD-2024-003",
-        date: "2024-05-22T09:15:00",
-        customer: "Смирнов Дмитрий",
-        phone: "+7 (999) 111-22-33",
-        email: "dmitry@example.com",
-        address: "г. Казань, ул. Баумана, д. 15",
-        items: [
-          {
-            name: "Джемпер из шелка и хлопка",
-            quantity: 2,
-            price: 11000,
-            size: "M",
-            color: "#827D6D",
-          },
-          {
-            name: "Футболка Shimmer",
-            quantity: 1,
-            price: 7000,
-            size: "L",
-            color: "#624134",
-          },
-        ],
-        subtotal: 29000,
-        deliveryPrice: 0,
-        total: 29000,
-        status: "new",
-        paymentMethod: "Картой курьеру",
-      },
     ];
     saveOrders();
   }
-
-  renderOrders();
 }
 
 function saveOrders() {
@@ -297,12 +241,15 @@ function updateStatistics() {
   document.getElementById("sizeStats").innerHTML = sizeStatsHtml;
 }
 
-// ОТОБРАЖЕНИЕ ЗАКАЗОВ
+// ОТОБРАЖЕНИЕ ЗАКАЗОВ 
 function renderOrders() {
   const ordersList = document.getElementById("adminOrdersList");
   const filter = document.getElementById("orderStatusFilter")?.value || "all";
 
   if (!ordersList) return;
+
+  // Загружаем заказы из localStorage
+  loadOrders();
 
   let filteredOrders = allOrders;
   if (filter !== "all") {
@@ -334,7 +281,7 @@ function renderOrders() {
           (item) => `
             <div class="order-product">
                 <div class="order-product-info">
-                    <p class="order-product-name">${item.name} (${item.size}, ${item.quantity} шт.)</p>
+                    <p class="order-product-name">${item.name} (${item.size || "?"}, ${item.quantity} шт.)</p>
                     <p class="order-product-price">${formatPrice(item.price * item.quantity)} ₽</p>
                 </div>
             </div>
@@ -356,7 +303,7 @@ function renderOrders() {
                     </select>
                 </div>
                 <div class="order-customer">
-                    <p><strong>${order.customer}</strong> | ${order.phone} | ${order.email}</p>
+                    <p><strong>${order.customer}</strong> | ${order.phone} | ${order.email || "Нет email"}</p>
                     <p>Адрес: ${order.address}</p>
                 </div>
                 <div class="order-products">
@@ -374,11 +321,9 @@ function renderOrders() {
   ordersList.innerHTML = ordersHtml;
 
   // Добавляем обработчик для фильтра
-  const filterSelect = document.getElementById("orderStatusFilter");
-  if (filterSelect) {
-    filterSelect.onchange = renderOrders;
-  }
 }
+
+
 
 // Обновление статуса заказа
 window.updateOrderStatus = function (orderId, newStatus) {
@@ -387,10 +332,7 @@ window.updateOrderStatus = function (orderId, newStatus) {
     order.status = newStatus;
     saveOrders();
     renderOrders();
-
-    if (typeof showNotification === "function") {
-      showNotification(`Статус заказа ${orderId} обновлен`, "success");
-    }
+    showNotification(`Статус заказа ${orderId} обновлен`, "success");
   }
 };
 
@@ -406,7 +348,6 @@ function renderProductsTable() {
 
   let filteredProducts = [...allProducts];
 
-  // Применяем фильтры
   if (searchTerm) {
     filteredProducts = filteredProducts.filter((p) =>
       p.name.toLowerCase().includes(searchTerm),
@@ -430,7 +371,6 @@ function renderProductsTable() {
       const sizesHtml = product.size
         .map((s) => `<span class="sizes-badge">${s}</span>`)
         .join("");
-
       const colorsHtml = product.colors
         .map(
           (color) =>
@@ -439,30 +379,27 @@ function renderProductsTable() {
         .join("");
 
       return `
-            <tr data-product-id="${product.gender}_${product.id}">
-                <td>${product.id}</td>
-                <td><img src="${product.images[0]}" alt="${product.name}" class="product-thumb"></td>
-                <td><strong>${product.name}</strong></td>
-                <td>${product.gender === "men" ? "Мужская" : "Женская"}</td>
-                <td>${formatPrice(product.price)} ₽</td>
-                <td>${sizesHtml}</td>
-                <td><div class="color-dots">${colorsHtml}</div></td>
-                <td>${product.stock || 0} шт.</td>
-                <td>
-                    <div class="action-buttons">
-                        <button class="action-btn" onclick="editProduct('${product.gender}', ${product.id})" title="Редактировать">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="action-btn" onclick="updateStock('${product.gender}', ${product.id})" title="Изменить запас">
-                            <i class="fas fa-boxes"></i>
-                        </button>
-                        <button class="action-btn delete" onclick="deleteProduct('${product.gender}', ${product.id})" title="Удалить">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        `;
+      <tr data-product-id="${product.gender}_${product.id}">
+        <td>${product.id}</td>
+        <td><img src="${product.images[0]}" alt="${product.name}" class="product-thumb"></td>
+        <td><strong>${product.name}</strong></td>
+        <td>${product.gender === "men" ? "Мужская" : "Женская"}</td>
+        <td>${formatPrice(product.price)} ₽</td>
+        <td>${sizesHtml}</td>
+        <td><div class="color-dots">${colorsHtml}</div></td>
+        <td>${product.stock || 0} шт.</td>
+        <td>
+          <div class="action-buttons">
+            <button class="action-btn" onclick="editProduct('${product.gender}', ${product.id})" title="Редактировать">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="action-btn delete" onclick="deleteProduct('${product.gender}', ${product.id})" title="Удалить">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
     })
     .join("");
 
@@ -477,9 +414,7 @@ function initFilters() {
   if (searchInput) {
     searchInput.addEventListener(
       "input",
-      debounce(() => {
-        renderProductsTable();
-      }, 300),
+      debounce(() => renderProductsTable(), 300),
     );
   }
 
@@ -488,55 +423,44 @@ function initFilters() {
   }
 }
 
-// Действия с товарами
+// Редактирование товара
 window.editProduct = function (gender, id) {
-  alert(
-    `Редактирование товара: ${gender}_${id}\nЭта функция будет доступна в следующей версии.`,
-  );
-};
-
-window.updateStock = function (gender, id) {
   const product = allProducts.find((p) => p.gender === gender && p.id === id);
   if (!product) return;
 
-  const newStock = prompt(
-    `Введите новое количество на складе для товара "${product.name}" (текущий запас: ${product.stock} шт.):`,
-    product.stock,
+  window.switchTab("add-product-tab");
+
+  document.getElementById("productGender").value = gender;
+  document.getElementById("productCategory").value =
+    product.category || "Одежда";
+  document.getElementById("productName").value = product.name;
+  document.getElementById("productPrice").value = product.price;
+  document.getElementById("productStock").value = product.stock || 10;
+  document.getElementById("productSizes").value = product.size.join(", ");
+  document.getElementById("productColors").value = product.colors.join(", ");
+  document.getElementById("productSeason").value = (product.season || []).join(
+    ", ",
   );
+  document.getElementById("productImage").value = product.images[0];
+  document.getElementById("productDescription").value =
+    product.description || "";
 
-  if (newStock !== null) {
-    const stockNum = parseInt(newStock);
-    if (!isNaN(stockNum) && stockNum >= 0) {
-      product.stock = stockNum;
-
-      // Обновляем в productsData (для совместимости)
-      if (gender === "men" && productsData.men) {
-        const idx = productsData.men.findIndex((p) => p.id === id);
-        if (idx !== -1) productsData.men[idx].stock = stockNum;
-      } else if (gender === "women" && productsData.women) {
-        const idx = productsData.women.findIndex((p) => p.id === id);
-        if (idx !== -1) productsData.women[idx].stock = stockNum;
-      }
-
-      renderProductsTable();
-      updateStatistics();
-
-      if (typeof showNotification === "function") {
-        showNotification(`Запас товара "${product.name}" обновлен`, "success");
-      }
-    } else {
-      alert("Пожалуйста, введите корректное число");
-    }
-  }
+  const submitBtn = document.querySelector(
+    '#addProductForm button[type="submit"]',
+  );
+  submitBtn.textContent = "Обновить товар";
+  submitBtn.dataset.editMode = "true";
+  submitBtn.dataset.editGender = gender;
+  submitBtn.dataset.editId = id;
 };
 
+// Удаление товара
 window.deleteProduct = function (gender, id) {
   if (
     confirm(
       "Вы уверены, что хотите удалить этот товар? Это действие необратимо.",
     )
   ) {
-    // Удаляем из allProducts
     const index = allProducts.findIndex(
       (p) => p.gender === gender && p.id === id,
     );
@@ -544,11 +468,20 @@ window.deleteProduct = function (gender, id) {
       const productName = allProducts[index].name;
       allProducts.splice(index, 1);
 
-      // Удаляем из productsData
-      if (gender === "men" && productsData.men) {
-        productsData.men = productsData.men.filter((p) => p.id !== id);
-      } else if (gender === "women" && productsData.women) {
-        productsData.women = productsData.women.filter((p) => p.id !== id);
+      // Обновляем localStorage напрямую
+      if (gender === "men" && window.productsData.men) {
+        window.productsData.men = window.productsData.men.filter(
+          (p) => p.id !== id,
+        );
+      } else if (gender === "women" && window.productsData.women) {
+        window.productsData.women = window.productsData.women.filter(
+          (p) => p.id !== id,
+        );
+      }
+
+      // Сохраняем изменения
+      if (typeof saveProductsData === "function") {
+        saveProductsData();
       }
 
       renderProductsTable();
@@ -556,12 +489,18 @@ window.deleteProduct = function (gender, id) {
 
       if (typeof showNotification === "function") {
         showNotification(`Товар "${productName}" удален`, "warning");
+      } else {
+        alert(`Товар "${productName}" удален`);
       }
+      loadProducts();
+      renderProductsTable();
+      updateStatistics();
     }
   }
 };
 
 // ФОРМА ДОБАВЛЕНИЯ ТОВАРА
+// Инициализация формы добавления
 function initAddProductForm() {
   const form = document.getElementById("addProductForm");
   if (!form) return;
@@ -569,9 +508,15 @@ function initAddProductForm() {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Собираем данные из формы
+    const isEditMode =
+      this.querySelector('button[type="submit"]').dataset.editMode === "true";
+    const editGender = this.querySelector('button[type="submit"]').dataset
+      .editGender;
+    const editId = parseInt(
+      this.querySelector('button[type="submit"]').dataset.editId,
+    );
+
     const gender = document.getElementById("productGender").value;
-    const category = document.getElementById("productCategory").value;
     const name = document.getElementById("productName").value;
     const price = parseInt(document.getElementById("productPrice").value);
     const stock = parseInt(document.getElementById("productStock").value);
@@ -591,7 +536,6 @@ function initAddProductForm() {
     const image = document.getElementById("productImage").value;
     const description = document.getElementById("productDescription").value;
 
-    // Валидация
     if (
       !gender ||
       !name ||
@@ -604,78 +548,63 @@ function initAddProductForm() {
       return;
     }
 
-    // Создаем новый ID (максимальный ID в категории + 1)
-    let newId = 1;
-    if (gender === "men" && productsData.men && productsData.men.length > 0) {
-      newId = Math.max(...productsData.men.map((p) => p.id)) + 1;
-    } else if (
-      gender === "women" &&
-      productsData.women &&
-      productsData.women.length > 0
-    ) {
-      newId = Math.max(...productsData.women.map((p) => p.id)) + 1;
-    }
-
-    // Создаем новый товар
-    const newProduct = {
-      id: newId,
-      name: name,
-      price: price,
-      image: image,
-      colors: colors,
-      category: category,
+    const productData = {
+      name,
+      price,
+      stock,
       size: sizes,
-      season: season.length ? season : ["Весна", "Лето"],
-      gender: gender,
-      description:
-        description ||
-        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      colors,
+      season,
+      images: [image],
+      category: "Одежда",
+      description: description || "Премиальный материал...",
       rating: 4.8,
-      stock: stock,
     };
 
-    // Добавляем в productsData
-    if (gender === "men") {
-      if (!productsData.men) productsData.men = [];
-      productsData.men.push(newProduct);
+    if (isEditMode) {
+      if (
+        window.updateProduct &&
+        window.updateProduct(editGender, editId, productData)
+      ) {
+        showFormMessage(`Товар успешно обновлен!`, "success");
+      }
     } else {
-      if (!productsData.women) productsData.women = [];
-      productsData.women.push(newProduct);
+      if (window.addProduct) {
+        window.addProduct(gender, productData);
+        showFormMessage(`Товар "${name}" успешно добавлен!`, "success");
+      }
     }
 
-    // Обновляем allProducts
-    allProducts.push({ ...newProduct, gender: gender });
-
-    // Показываем сообщение об успехе
-    showFormMessage(`Товар "${name}" успешно добавлен!`, "success");
-
-    // Сбрасываем форму
-    form.reset();
-
-    // Обновляем статистику и таблицу товаров
+    loadProducts();
     updateStatistics();
+    resetAddProductForm();
 
-    // Переключаемся на вкладку с товарами через 1.5 секунды
-    setTimeout(() => {
-      window.switchTab("products-tab");
-    }, 1500);
+    setTimeout(() => window.switchTab("products-tab"), 1500);
   });
 }
 
+// Сброс формы
 window.resetAddProductForm = function () {
   document.getElementById("addProductForm").reset();
   document.getElementById("formMessage").innerHTML = "";
+
+  const submitBtn = document.querySelector(
+    '#addProductForm button[type="submit"]',
+  );
+  submitBtn.textContent = "Сохранить товар";
+  delete submitBtn.dataset.editMode;
+  delete submitBtn.dataset.editGender;
+  delete submitBtn.dataset.editId;
 };
 
 function showFormMessage(message, type) {
-  const messageEl = document.getElementById("formMessage");
-  messageEl.innerHTML = message;
-  messageEl.className = `form-message ${type}`;
-
-  // Автоматически скрываем через 5 секунд
+  alert(message);
+  // const messageEl = document.getElementById("formMessage");
+  // messageEl.innerHTML = message;
+  // messageEl.className = `form-message ${type}`;
   setTimeout(() => {
-    messageEl.innerHTML = "";
-    messageEl.className = "form-message";
+    // messageEl.innerHTML = "";
+    // messageEl.className = "form-message";
   }, 5000);
 }
 
@@ -695,3 +624,479 @@ function debounce(func, wait) {
     timeout = setTimeout(later, wait);
   };
 }
+
+function showNotification(message, type) {
+  alert(message); // Простой вариант, можно заменить на кастомные уведомления
+}
+
+
+// ===== НОВАЯ ВКЛАДКА "ЗАЯВКИ" =====
+
+// Загрузка заявок
+function loadContactRequests() {
+  const savedRequests = localStorage.getItem('contactRequests');
+  if (savedRequests) {
+    try {
+      return JSON.parse(savedRequests);
+    } catch (e) {
+      console.error('Ошибка загрузки заявок:', e);
+      return [];
+    }
+  }
+  return [];
+}
+
+// Отображение заявок
+function renderContactRequests() {
+  const requestsContainer = document.getElementById('contactRequestsList');
+  if (!requestsContainer) return;
+  
+  const requests = loadContactRequests();
+  
+  if (requests.length === 0) {
+    requestsContainer.innerHTML = '<p class="loading-message">Новых заявок нет</p>';
+    return;
+  }
+  
+  // Сортируем по дате (новые сверху)
+  requests.sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+  const statusLabels = {
+    new: 'Новая',
+    in_progress: 'В обработке',
+    completed: 'Завершена',
+    archived: 'В архиве'
+  };
+  
+  const requestsHtml = requests.map(request => {
+    const date = new Date(request.date).toLocaleString('ru-RU', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    
+    return `
+      <div class="request-item" data-request-id="${request.id}" style="
+        background-color: rgba(79, 62, 53, 0.02);
+        border: 1px solid rgba(79, 62, 53, 0.1);
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      ">
+        <div style="
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding-bottom: 15px;
+          border-bottom: 1px dashed rgba(79, 62, 53, 0.2);
+          margin-bottom: 15px;
+          flex-wrap: wrap;
+        ">
+          <span style="
+            font-family: Georgia;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4f3e35;
+          ">${request.id}</span>
+          <span style="
+            font-family: Arial;
+            font-size: 14px;
+            color: #4f3e35;
+            opacity: 0.7;
+          ">${date}</span>
+          <span style="
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: ${request.status === 'new' ? 'rgba(33, 150, 243, 0.1)' : 
+                              request.status === 'in_progress' ? 'rgba(255, 152, 0, 0.1)' : 
+                              request.status === 'completed' ? 'rgba(76, 175, 80, 0.1)' : 
+                              'rgba(158, 158, 158, 0.1)'};
+            color: ${request.status === 'new' ? '#1976d2' : 
+                    request.status === 'in_progress' ? '#f57c00' : 
+                    request.status === 'completed' ? '#2e7d32' : 
+                    '#616161'};
+            border: 1px solid ${request.status === 'new' ? '#1976d2' : 
+                                request.status === 'in_progress' ? '#f57c00' : 
+                                request.status === 'completed' ? '#2e7d32' : 
+                                '#616161'};
+            margin-left: auto;
+          ">${statusLabels[request.status]}</span>
+          <select onchange="updateRequestStatus('${request.id}', this.value)" style="
+            padding: 8px 15px;
+            border: 2px solid #4f3e35;
+            background-color: #dfd8cb;
+            font-family: Arial;
+            font-size: 14px;
+            color: #4f3e35;
+            border-radius: 20px;
+            cursor: pointer;
+            outline: none;
+          ">
+            <option value="new" ${request.status === 'new' ? 'selected' : ''}>Новая</option>
+            <option value="in_progress" ${request.status === 'in_progress' ? 'selected' : ''}>В обработке</option>
+            <option value="completed" ${request.status === 'completed' ? 'selected' : ''}>Завершена</option>
+            <option value="archived" ${request.status === 'archived' ? 'selected' : ''}>В архиве</option>
+          </select>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+          <p style="
+            font-family: Georgia;
+            font-size: 18px;
+            color: #4f3e35;
+            margin-bottom: 5px;
+          "><strong>${request.fullname}</strong></p>
+          <p style="
+            font-family: Arial;
+            font-size: 16px;
+            color: #4f3e35;
+            opacity: 0.8;
+            margin-bottom: 3px;
+          ">📞 ${request.phone}</p>
+          <p style="
+            font-family: Arial;
+            font-size: 16px;
+            color: #4f3e35;
+            opacity: 0.8;
+            margin-bottom: 3px;
+          ">✉️ ${request.email}</p>
+        </div>
+        
+        <div style="
+          background-color: rgba(79, 62, 53, 0.03);
+          border-radius: 15px;
+          padding: 20px;
+          margin-top: 10px;
+        ">
+          <p style="
+            font-family: Georgia;
+            font-size: 16px;
+            color: #4f3e35;
+            line-height: 1.5;
+            margin: 0;
+          ">${request.message}</p>
+        </div>
+        
+        <div style="
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 15px;
+        ">
+          <button onclick="deleteRequest('${request.id}')" style="
+            padding: 8px 20px;
+            background: transparent;
+            border: 2px solid #c62828;
+            color: #c62828;
+            font-family: Georgia;
+            font-size: 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          " onmouseover="this.style.background='#c62828'; this.style.color='white'" 
+             onmouseout="this.style.background='transparent'; this.style.color='#c62828'">
+            Удалить
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+  
+  requestsContainer.innerHTML = requestsHtml;
+}
+
+// Обновление статуса заявки
+window.updateRequestStatus = function(requestId, newStatus) {
+  const requests = loadContactRequests();
+  const requestIndex = requests.findIndex(r => r.id === requestId);
+  
+  if (requestIndex !== -1) {
+    requests[requestIndex].status = newStatus;
+    localStorage.setItem('contactRequests', JSON.stringify(requests));
+    renderContactRequests();
+    showNotification('Статус заявки обновлен', 'success');
+  }
+};
+
+// Удаление заявки
+window.deleteRequest = function(requestId) {
+  if (confirm('Вы уверены, что хотите удалить эту заявку?')) {
+    const requests = loadContactRequests();
+    const filteredRequests = requests.filter(r => r.id !== requestId);
+    localStorage.setItem('contactRequests', JSON.stringify(filteredRequests));
+    renderContactRequests();
+    showNotification('Заявка удалена', 'warning');
+  }
+};
+
+// Добавляем кнопку для новой вкладки в админ-панель
+function addRequestsTab() {
+  const tabsContainer = document.querySelector('.admin-tabs');
+  if (!tabsContainer) return;
+  
+  // Проверяем, есть ли уже вкладка
+  if (document.querySelector('[data-tab="requests"]')) return;
+  
+  const requestsTab = document.createElement('button');
+  requestsTab.className = 'tab-button';
+  requestsTab.setAttribute('data-tab', 'requests');
+  requestsTab.textContent = 'Заявки';
+  
+  // Добавляем счетчик новых заявок
+  const requests = loadContactRequests();
+  const newRequestsCount = requests.filter(r => r.status === 'new').length;
+  
+  if (newRequestsCount > 0) {
+    const badge = document.createElement('span');
+    badge.style.cssText = `
+      display: inline-block;
+      background-color: #c62828;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 8px;
+      font-size: 12px;
+      margin-left: 8px;
+    `;
+    badge.textContent = newRequestsCount;
+    requestsTab.appendChild(badge);
+  }
+  
+  tabsContainer.appendChild(requestsTab);
+  
+  // Добавляем контейнер для заявок
+  const contentContainer = document.querySelector('.admin-content');
+  const requestsPane = document.createElement('div');
+  requestsPane.className = 'tab-pane';
+  requestsPane.id = 'requests-tab';
+  requestsPane.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+      <h2 style="font-family: Georgia; font-size: 32px; color: #4f3e35;">Заявки с сайта</h2>
+      <div class="requests-filter">
+        <select id="requestsStatusFilter" class="filter-select" onchange="filterRequests()">
+          <option value="all">Все заявки</option>
+          <option value="new">Новые</option>
+          <option value="in_progress">В обработке</option>
+          <option value="completed">Завершенные</option>
+          <option value="archived">В архиве</option>
+        </select>
+      </div>
+    </div>
+    <div id="contactRequestsList" class="requests-list"></div>
+  `;
+  
+  contentContainer.appendChild(requestsPane);
+  
+  // Добавляем обработчик для вкладки
+  requestsTab.addEventListener('click', function() {
+    window.switchTab('requests-tab');
+    renderContactRequests();
+  });
+}
+
+// Фильтрация заявок
+window.filterRequests = function() {
+  const filter = document.getElementById('requestsStatusFilter')?.value || 'all';
+  const requests = loadContactRequests();
+  
+  let filteredRequests = requests;
+  if (filter !== 'all') {
+    filteredRequests = requests.filter(r => r.status === filter);
+  }
+  
+  // Временно сохраняем отфильтрованные для отображения
+  const requestsContainer = document.getElementById('contactRequestsList');
+  if (!requestsContainer) return;
+  
+  if (filteredRequests.length === 0) {
+    requestsContainer.innerHTML = '<p class="loading-message">Заявки не найдены</p>';
+    return;
+  }
+  
+  // Переиспользуем функцию отображения с фильтром
+  const originalRequests = loadContactRequests();
+  localStorage.setItem('filteredRequestsTemp', JSON.stringify(filteredRequests));
+  renderContactRequests();
+  localStorage.removeItem('filteredRequestsTemp');
+};
+
+// Модифицируем функцию renderContactRequests для поддержки фильтрации
+const originalRender = renderContactRequests;
+renderContactRequests = function() {
+  const requestsContainer = document.getElementById('contactRequestsList');
+  if (!requestsContainer) return;
+  
+  const filter = document.getElementById('requestsStatusFilter')?.value || 'all';
+  let requests = loadContactRequests();
+  
+  if (filter !== 'all') {
+    requests = requests.filter(r => r.status === filter);
+  }
+  
+  if (requests.length === 0) {
+    requestsContainer.innerHTML = '<p class="loading-message">Заявки не найдены</p>';
+    return;
+  }
+  
+  requests.sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+  const statusLabels = {
+    new: 'Новая',
+    in_progress: 'В обработке',
+    completed: 'Завершена',
+    archived: 'В архиве'
+  };
+  
+  const requestsHtml = requests.map(request => {
+    const date = new Date(request.date).toLocaleString('ru-RU', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    debugger;
+    
+    return `
+      <div class="request-item" data-request-id="${request.id}" style="
+        background-color: rgba(79, 62, 53, 0.02);
+        border: 1px solid rgba(79, 62, 53, 0.1);
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      ">
+        <div style="
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding-bottom: 15px;
+          border-bottom: 1px dashed rgba(79, 62, 53, 0.2);
+          margin-bottom: 15px;
+          flex-wrap: wrap;
+        ">
+          <span style="
+            font-family: Georgia;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4f3e35;
+          ">${request.id}</span>
+          <span style="
+            font-family: Arial;
+            font-size: 14px;
+            color: #4f3e35;
+            opacity: 0.7;
+          ">${date}</span>
+          <span style="
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: ${request.status === 'new' ? 'rgba(33, 150, 243, 0.1)' : 
+                              request.status === 'in_progress' ? 'rgba(255, 152, 0, 0.1)' : 
+                              request.status === 'completed' ? 'rgba(76, 175, 80, 0.1)' : 
+                              'rgba(158, 158, 158, 0.1)'};
+            color: ${request.status === 'new' ? '#1976d2' : 
+                    request.status === 'in_progress' ? '#f57c00' : 
+                    request.status === 'completed' ? '#2e7d32' : 
+                    '#616161'};
+            border: 1px solid ${request.status === 'new' ? '#1976d2' : 
+                                request.status === 'in_progress' ? '#f57c00' : 
+                                request.status === 'completed' ? '#2e7d32' : 
+                                '#616161'};
+            margin-left: auto;
+          ">${statusLabels[request.status]}</span>
+          <select onchange="updateRequestStatus('${request.id}', this.value)" style="
+            padding: 8px 15px;
+            border: 2px solid #4f3e35;
+            background-color: #dfd8cb;
+            font-family: Arial;
+            font-size: 14px;
+            color: #4f3e35;
+            border-radius: 20px;
+            cursor: pointer;
+            outline: none;
+          ">
+            <option value="new" ${request.status === 'new' ? 'selected' : ''}>Новая</option>
+            <option value="in_progress" ${request.status === 'in_progress' ? 'selected' : ''}>В обработке</option>
+            <option value="completed" ${request.status === 'completed' ? 'selected' : ''}>Завершена</option>
+            <option value="archived" ${request.status === 'archived' ? 'selected' : ''}>В архиве</option>
+          </select>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+          <p style="
+            font-family: Georgia;
+            font-size: 18px;
+            color: #4f3e35;
+            margin-bottom: 5px;
+          "><strong>${request.fullname}</strong></p>
+          <p style="
+            font-family: Arial;
+            font-size: 16px;
+            color: #4f3e35;
+            opacity: 0.8;
+            margin-bottom: 3px;
+          ">📞 ${request.phone}</p>
+          <p style="
+            font-family: Arial;
+            font-size: 16px;
+            color: #4f3e35;
+            opacity: 0.8;
+            margin-bottom: 3px;
+          ">✉️ ${request.email}</p>
+        </div>
+        
+        <div style="
+          background-color: rgba(79, 62, 53, 0.03);
+          border-radius: 15px;
+          padding: 20px;
+          margin-top: 10px;
+        ">
+          <p style="
+            font-family: Georgia;
+            font-size: 16px;
+            color: #4f3e35;
+            line-height: 1.5;
+            margin: 0;
+          ">${request.message}</p>
+        </div>
+        
+        <div style="
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 15px;
+        ">
+          <button onclick="deleteRequest('${request.id}')" style="
+            padding: 8px 20px;
+            background: transparent;
+            border: 2px solid #c62828;
+            color: #c62828;
+            font-family: Georgia;
+            font-size: 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          " onmouseover="this.style.background='#c62828'; this.style.color='white'" 
+             onmouseout="this.style.background='transparent'; this.style.color='#c62828'">
+            Удалить
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+  
+  requestsContainer.innerHTML = requestsHtml;
+};
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+  // Добавляем вкладку с заявками
+  setTimeout(addRequestsTab, 500);
+});

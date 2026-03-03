@@ -578,8 +578,7 @@ window.submitOrder = function () {
     address: address.value.trim(),
     deliveryMethod: deliverySelect.selectedOptions[0].text,
     deliveryPrice: deliveryPrice,
-    paymentMethod:
-      document.getElementById("paymentMethod").selectedOptions[0].text,
+    paymentMethod: document.getElementById("paymentMethod").selectedOptions[0].text,
     comment: document.getElementById("comment")?.value.trim() || "",
     items: cart.map((item) => ({
       name: item.name,
@@ -596,19 +595,24 @@ window.submitOrder = function () {
   // Здесь можно отправить данные на сервер
   console.log("Заказ оформлен:", orderData);
 
-  // Показываем успешное сообщение
-  showHint(
-    `Спасибо за заказ, ${orderData.fullName}! Детали заказа отправлены на ваш телефон`,
-    "success",
-  );
+  // Сохраняем заказ в админ-панель
+  const saved = saveOrderToAdmin(orderData);
+  
+  if (saved) {
+    // Показываем успешное сообщение
+    showNotification(
+      `Спасибо за заказ, ${orderData.fullName}! Детали заказа отправлены на ваш телефон`,
+      "success"
+    );
 
-  // Очищаем корзину
-  saveCart([]);
+    // Очищаем корзину
+    saveCart([]);
 
-  // Очищаем форму через небольшую задержку
-  showHint("Заказ успешно оформлен!", "success");
-
-  setTimeout(() => displayCart(), 1000);
+    // Очищаем форму через небольшую задержку
+    setTimeout(() => displayCart(), 1000);
+  } else {
+    showNotification("Ошибка при оформлении заказа", "error");
+  }
 };
 
 // Отображение корзины
@@ -690,3 +694,58 @@ document.addEventListener("input", function (e) {
     }
   }
 });
+
+// Сохранение заказа в localStorage для админ-панели
+function saveOrderToAdmin(orderData) {
+  try {
+    // Получаем существующие заказы
+    let existingOrders = [];
+    const savedOrders = localStorage.getItem('adminOrders');
+    
+    if (savedOrders) {
+      existingOrders = JSON.parse(savedOrders);
+    }
+    
+    // Генерируем уникальный ID для заказа
+    const orderId = 'ORD-' + new Date().getFullYear() + '-' + 
+                    String(existingOrders.length + 1).padStart(3, '0');
+    
+    // Форматируем дату
+    const now = new Date();
+    const orderDate = now.toISOString();
+    
+    // Создаем объект заказа в формате админ-панели
+    const adminOrder = {
+      id: orderId,
+      date: orderDate,
+      customer: orderData.fullName,
+      phone: orderData.phone,
+      email: orderData.email || '',
+      address: orderData.address,
+      items: orderData.items.map(item => ({
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+        size: item.size,
+        color: item.color
+      })),
+      subtotal: orderData.subtotal,
+      deliveryPrice: orderData.deliveryPrice,
+      total: orderData.total,
+      status: 'new', // Новый заказ
+      paymentMethod: orderData.paymentMethod
+    };
+    
+    // Добавляем новый заказ в начало массива
+    existingOrders.unshift(adminOrder);
+    
+    // Сохраняем обратно в localStorage
+    localStorage.setItem('adminOrders', JSON.stringify(existingOrders));
+    
+    console.log('Заказ сохранен в админ-панели:', adminOrder);
+    return true;
+  } catch (error) {
+    console.error('Ошибка при сохранении заказа:', error);
+    return false;
+  }
+}

@@ -22,6 +22,21 @@ let allProductsInCategory = [];
 // Текущая категория товаров (men или women)
 let currentCategory = "men";
 
+function refreshCatalog() {
+  if (!window.productsData || !window.productsData[currentCategory]) return;
+  
+  allProductsInCategory = window.productsData[currentCategory].map(p => ({
+    ...p, gender: currentCategory
+  }));
+  
+  updatePaginationState(allProductsInCategory.length);
+  const pageProducts = getCurrentPageProducts(allProductsInCategory);
+  renderProducts(pageProducts);
+  updateProductsCount(allProductsInCategory.length);
+  renderColorFilters();
+}
+
+
 // Функция для обновления состояния пагинации
 function updatePaginationState(totalItems) {
   paginationState.totalItems = totalItems;
@@ -821,87 +836,27 @@ function initColorFilterHandlers() {
 // ОСНОВНАЯ ФУНКЦИЯ ЗАГРУЗКИ КАТАЛОГА
 function loadCatalog() {
   console.log("=== НАЧАЛО ЗАГРУЗКИ КАТАЛОГА ===");
-
-  // Определяем текущую категорию по URL
+  
   const path = window.location.pathname;
   currentCategory = path.includes("catalog-wom.html") ? "women" : "men";
-  console.log("currentCategory:", currentCategory);
-
-  // Загружаем настройки пагинации
+  
   loadPaginationSettings();
-
-  // ПРОВЕРКА: существует ли productsData
-  if (typeof productsData === "undefined") {
-    console.error("ОШИБКА: productsData не загружен!");
-    return;
+  
+  if (window.productsData && window.productsData[currentCategory]) {
+    refreshCatalog();
+  } else {
+    // Ждем загрузки данных
+    document.addEventListener('productsLoaded', refreshCatalog);
   }
-
-  // ПРОВЕРКА: существует ли нужная категория
-  if (!productsData[currentCategory]) {
-    console.error(
-      `ОШИБКА: категория ${currentCategory} не найдена в productsData!`,
-    );
-    console.log("Доступные категории:", Object.keys(productsData));
-    return;
-  }
-
-  console.log(
-    `Найдена категория ${currentCategory} с ${productsData[currentCategory].length} товарами`,
-  );
-
-  // ПРОВЕРКА: является ли это массивом
-  if (!Array.isArray(productsData[currentCategory])) {
-    console.error(
-      `ОШИБКА: productsData[${currentCategory}] не является массивом!`,
-    );
-    return;
-  }
-
-  // КОПИРУЕМ МАССИВ БЕЗОПАСНО
-  try {
-    // Создаем копию массива вручную
-    allProductsInCategory = [];
-    for (let i = 0; i < productsData[currentCategory].length; i++) {
-      allProductsInCategory.push({ ...productsData[currentCategory][i] });
-    }
-
-    // Добавляем gender каждому товару
-    allProductsInCategory.forEach((product) => {
-      product.gender = currentCategory;
-    });
-
-    console.log(
-      "allProductsInCategory создан, длина:",
-      allProductsInCategory.length,
-    );
-  } catch (e) {
-    console.error("Ошибка при создании allProductsInCategory:", e);
-    return;
-  }
-
-  // Отрисовываем цветные фильтры
-  renderColorFilters();
-
-  // Обновляем состояние пагинации
-  updatePaginationState(allProductsInCategory.length);
-
-  // Получаем товары для первой страницы
-  const pageProducts = getCurrentPageProducts(allProductsInCategory);
-
-  // Отображаем товары
-  renderProducts(pageProducts);
-  updateProductsCount(allProductsInCategory.length);
-
-  // Инициализируем все компоненты
+  
   initFilterSections();
   initFilterHandlers();
   addResetButton();
   initFilterToggle();
   initProductCards();
-
+  
   console.log("=== ЗАГРУЗКА КАТАЛОГА ЗАВЕРШЕНА ===");
 }
-
 // Инициализация при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM загружен, запускаем каталог");

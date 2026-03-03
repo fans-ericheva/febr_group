@@ -191,20 +191,8 @@
             </ul>
         </div>
     </footer>
-
-    <script>
-        document.getElementById('contactForm').onsubmit = function(event) {
-            event.preventDefault();
-            
-            if (this.fullname.value && this.phone.value && this.email.value && this.message.value) {
-                alert('Форма успешно отправлена! Мы свяжемся с вами в ближайшее время.');
-                this.reset();
-            } else {
-                alert('Пожалуйста, заполните все поля формы.');
-            }
-        };
-    </script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/contacts.js"></script>
 </body>
 
 </html>

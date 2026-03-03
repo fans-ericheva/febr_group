@@ -1,0 +1,1404 @@
+{
+  "women": [
+    {
+      "id": 1,
+      "name": "Платье с драпировкой",
+      "price": 17000,
+      "images": ["./images/women/1_1.jpg", "./images/women/1_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "name": "Платье с драпировкой",
+      "price": 17000,
+      "images": ["./images/women/2_1.jpg", "./images/women/2_2.jpg"],
+      "colors": ["#F0EEE3"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "name": "Водолазка из шелка",
+      "price": 8800,
+      "images": ["./images/women/3_1.jpg", "./images/women/3_2.jpg"],
+      "colors": ["#000000"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 4,
+      "name": "Водолазка из шелка",
+      "price": 8800,
+      "images": ["./images/women/4_1.jpg", "./images/women/4_2.jpg"],
+      "colors": ["#F0EEE3"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 5,
+      "name": "Брюки Cannes",
+      "price": 16800,
+      "images": ["./images/women/5_1.jpg", "./images/women/5_2.jpg"],
+      "colors": ["#66676E"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 6,
+      "name": "Брюки Cannes",
+      "price": 16800,
+      "images": ["./images/women/6_1.jpg", "./images/women/6_2.jpg"],
+      "colors": ["#000000"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 7,
+      "name": "Топ Cannes",
+      "price": 16800,
+      "images": ["./images/women/7_1.jpg", "./images/women/7_2.jpg"],
+      "colors": ["#66676E"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 8,
+      "name": "Топ Cannes",
+      "price": 16800,
+      "images": ["./images/women/8_1.jpg", "./images/women/8_2.jpg"],
+      "colors": ["#000000"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 9,
+      "name": "Плащ из хлопка",
+      "price": 39000,
+      "images": ["./images/women/9_1.jpg", "./images/women/9_2.jpg"],
+      "colors": ["#D1C8B9"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 10,
+      "name": "Плащ из хлопка",
+      "price": 39000,
+      "images": ["./images/women/10_1.jpg", "./images/women/10_2.jpg"],
+      "colors": ["#604837"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 11,
+      "name": "Куртка Yuma",
+      "price": 15000,
+      "images": ["./images/women/11_1.jpg", "./images/women/11_2.jpg"],
+      "colors": ["#744737"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 12,
+      "name": "Куртка Yuma",
+      "price": 15000,
+      "images": ["./images/women/12_1.jpg", "./images/women/12_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 13,
+      "name": "Джинсы Straight 334",
+      "price": 15000,
+      "images": ["./images/women/13_1.jpg", "./images/women/13_2.jpg"],
+      "colors": ["#744737"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 14,
+      "name": "Джинсы Straight 334",
+      "price": 15000,
+      "images": ["./images/women/14_1.jpg", "./images/women/14_2.jpg"],
+      "colors": ["#455972"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 15,
+      "name": "Топ из шелка",
+      "price": 22000,
+      "images": ["./images/women/15_1.jpg", "./images/women/15_2.jpg"],
+      "colors": ["#6B9EA7"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Лето", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 16,
+      "name": "Топ из шелка",
+      "price": 22000,
+      "images": ["./images/women/16_1.jpg", "./images/women/16_2.jpg"],
+      "colors": ["#003A57"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 17,
+      "name": "Джемпер Hearth",
+      "price": 15000,
+      "images": ["./images/women/17_1.jpg", "./images/women/17_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Осень", "Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 18,
+      "name": "Джемпер Hearth",
+      "price": 15000,
+      "images": ["./images/women/18_1.jpg", "./images/women/18_2.jpg"],
+      "colors": ["#FFFFFF"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Осень", "Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 19,
+      "name": "Жилет Harvest",
+      "price": 20000,
+      "images": ["./images/women/19_1.jpg", "./images/women/19_2.jpg"],
+      "colors": ["#004F91"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 20,
+      "name": "Жилет Harvest",
+      "price": 20000,
+      "images": ["./images/women/20_1.jpg", "./images/women/20_2.jpg"],
+      "colors": ["#FFFFFF"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 21,
+      "name": "Брюки из испанского твила",
+      "price": 17000,
+      "images": ["./images/women/21_1.jpg", "./images/women/21_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Весна", "Осень", "Лето", "Зима"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 22,
+      "name": "Брюки из испанского твила",
+      "price": 17000,
+      "images": ["./images/women/22_1.jpg", "./images/women/22_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Весна", "Осень", "Лето", "Зима"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 23,
+      "name": "Рубашка из мерсеризованного хлопка",
+      "price": 10000,
+      "images": ["./images/women/23_1.jpg", "./images/women/23_2.jpg"],
+      "colors": ["#57ABD6"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 24,
+      "name": "Рубашка из мерсеризованного хлопка",
+      "price": 10000,
+      "images": ["./images/women/24_1.jpg", "./images/women/24_2.jpg"],
+      "colors": ["#ECF1FF"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 25,
+      "name": "Джемпер шерсть и шелк",
+      "price": 11100,
+      "images": ["./images/women/25_1.jpg", "./images/women/25_2.jpg"],
+      "colors": ["#BE7E7C"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 26,
+      "name": "Джемпер шерсть и шелк",
+      "price": 11100,
+      "images": ["./images/women/26_1.jpg", "./images/women/26_2.jpg"],
+      "colors": ["#ECF1FF"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 27,
+      "name": "Пальто из шерсти мериноса",
+      "price": 50500,
+      "images": ["./images/women/27_1.jpg", "./images/women/27_2.jpg"],
+      "colors": ["#604837"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Зима", "Осень"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 28,
+      "name": "Пальто из шерсти мериноса",
+      "price": 50500,
+      "images": ["./images/women/28_1.jpg", "./images/women/28_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Зима", "Осень"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 29,
+      "name": "Бомбер Lounge",
+      "price": 17000,
+      "images": ["./images/women/29_1.jpg", "./images/women/29_2.jpg"],
+      "colors": ["#B48362"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Зима", "Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 30,
+      "name": "Бомбер Lounge",
+      "price": 17000,
+      "images": ["./images/women/30_1.jpg", "./images/women/30_2.jpg"],
+      "colors": ["#66676E"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Зима", "Осень", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 31,
+      "name": "Футболка из модала и шелка",
+      "price": 5000,
+      "images": ["./images/women/31_1.jpg", "./images/women/31_2.jpg"],
+      "colors": ["#000000"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Лето", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 32,
+      "name": "Футболка из модала и шелка",
+      "price": 5000,
+      "images": ["./images/women/32_1.jpg", "./images/women/32_2.jpg"],
+      "colors": ["#ECF1FF"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 33,
+      "name": "Рубашка из денима",
+      "price": 20000,
+      "images": ["./images/women/33_1.jpg", "./images/women/33_2.jpg"],
+      "colors": ["#66676E"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Осень", "Весна", "Зима"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 34,
+      "name": "Рубашка из денима",
+      "price": 20000,
+      "images": ["./images/women/34_1.jpg", "./images/women/34_2.jpg"],
+      "colors": ["#455972"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Осень", "Весна", "Зима"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 35,
+      "name": "Куртка Bora утепленная",
+      "price": 35000,
+      "images": ["./images/women/35_1.jpg", "./images/women/35_2.jpg"],
+      "colors": ["#6A5E4D"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Осень", "Весна", "Зима"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 36,
+      "name": "Куртка Bora утепленная",
+      "price": 35000,
+      "images": ["./images/women/36_1.jpg", "./images/women/36_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Весна", "Зима"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 37,
+      "name": "Джинсы Straight 3211",
+      "price": 15000,
+      "images": ["./images/women/37_1.jpg", "./images/women/37_2.jpg"],
+      "colors": ["#A6BCCE"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Осень", "Весна", "Зима", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 38,
+      "name": "Джинсы Straight 3211",
+      "price": 15000,
+      "images": ["./images/women/38_1.jpg", "./images/women/38_2.jpg"],
+      "colors": ["#455972"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Весна", "Зима", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 39,
+      "name": "Кардиган Jasmin",
+      "price": 19000,
+      "images": ["./images/women/39_1.jpg", "./images/women/39_2.jpg"],
+      "colors": ["#B48362"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Осень", "Весна", "Зима", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 40,
+      "name": "Кардиган Jasmin",
+      "price": 19000,
+      "images": ["./images/women/40_1.jpg", "./images/women/40_2.jpg"],
+      "colors": ["#66676E"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Осень", "Весна", "Зима", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 41,
+      "name": "Брюки Jasmin",
+      "price": 23000,
+      "images": ["./images/women/41_1.jpg", "./images/women/41_2.jpg"],
+      "colors": ["#B48362"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Осень", "Весна", "Зима", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 42,
+      "name": "Брюки Jasmin",
+      "price": 23000,
+      "images": ["./images/women/42_1.jpg", "./images/women/42_2.jpg"],
+      "colors": ["#66676E"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Весна", "Зима", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 43,
+      "name": "Жакет Mirage",
+      "price": 13000,
+      "images": ["./images/women/43_1.jpg", "./images/women/43_2.jpg"],
+      "colors": ["#B48362"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Осень", "Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 44,
+      "name": "Жакет Mirage",
+      "price": 13000,
+      "images": ["./images/women/44_1.jpg", "./images/women/44_2.jpg"],
+      "colors": ["#66676E"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 45,
+      "name": "Брюки Mirage",
+      "price": 10000,
+      "images": ["./images/women/45_1.jpg", "./images/women/45_2.jpg"],
+      "colors": ["#B48362"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Осень", "Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 46,
+      "name": "Брюки Mirage",
+      "price": 10000,
+      "images": ["./images/women/46_1.jpg", "./images/women/46_2.jpg"],
+      "colors": ["#66676E"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Осень", "Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 49,
+      "title": "Юбка из шелка",
+      "price": 12000,
+      "images": ["./images/women/49_1.jpg", "./images/women/49_2.jpg"],
+      "colors": ["#6B9EA7"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["лето", "весна"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    },
+    {
+      "id": 50,
+      "title": "Юбка из шелка",
+      "price": 12000,
+      "images": ["./images/women/50_1.jpg", "./images/women/50_2.jpg"],
+      "colors": ["#003A57"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Весна", "Лето"],
+      "gender": "women",
+      "description":
+        "Премиальный материал и продуманный силуэт для комфортной посадки.",
+      "rating": 4.8
+    }
+  ],
+  "men": [
+    {
+      "id": 1,
+      "name": "Худи Stratum",
+      "price": 12000,
+      "images": ["./images/men/1_1.jpg", "./images/men/1_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна"],
+      "gender": "men",
+      "description":
+        "Для этой толстовки мы выбрали редкую пряжу из тонкой шерсти и льна и связали ее в одну нить, чтобы трикотаж получился легким и дышащим",
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "name": "Худи Stratum",
+      "price": 12000,
+      "images": ["./images/men/2_1.jpg", "./images/men/2_2.jpg"],
+      "colors": ["#B4A98F"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето", "Весна"],
+      "gender": "men",
+      "description":
+        "Для этой толстовки мы выбрали редкую пряжу из тонкой шерсти и льна и связали ее в одну нить, чтобы трикотаж получился легким и дышащим",
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "name": "Брюки Stratum",
+      "price": 19000,
+      "images": ["./images/men/3_1.jpg", "./images/men/3_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна"],
+      "gender": "men",
+      "description":
+        "Для этих брюк мы выбрали редкую пряжу из тонкой шерсти и льна и связали ее в одну нить, чтобы трикотаж получился легким и дышащим",
+      "rating": 4.8
+    },
+    {
+      "id": 4,
+      "name": "Брюки Stratum",
+      "price": 19000,
+      "images": ["./images/men/4_1.jpg", "./images/men/4_2.jpg"],
+      "colors": ["#B4A98F"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето", "Весна"],
+      "gender": "men",
+      "description":
+        "Для этих брюк мы выбрали редкую пряжу из тонкой шерсти и льна и связали ее в одну нить, чтобы трикотаж получился легким и дышащим",
+      "rating": 4.8
+    },
+    {
+      "id": 5,
+      "name": "Брюки из итальянского хлопка",
+      "price": 19000,
+      "images": ["./images/men/5_1.jpg", "./images/men/5_2.jpg"],
+      "colors": ["#C5CBCC"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Сатиновое переплетение делает хлопок гладким, менее мнущимся и шелковистым на ощупь. Универсальная модель на каждый день — слегка зауженные книзу брюки чинос со стрелками",
+      "rating": 4.8
+    },
+    {
+      "id": 6,
+      "name": "Брюки из итальянского хлопка",
+      "price": 19000,
+      "images": ["./images/men/6_1.jpg", "./images/men/6_2.jpg"],
+      "colors": ["#945431"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Сатиновое переплетение делает хлопок гладким, менее мнущимся и шелковистым на ощупь. Универсальная модель на каждый день — слегка зауженные книзу брюки чинос со стрелками",
+      "rating": 4.8
+    },
+    {
+      "id": 7,
+      "name": "Брюки из итальянского хлопка",
+      "price": 19000,
+      "images": ["./images/men/7_1.jpg", "./images/men/7_2.jpg"],
+      "colors": ["#766151"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Сатиновое переплетение делает хлопок гладким, менее мнущимся и шелковистым на ощупь. Универсальная модель на каждый день — слегка зауженные книзу брюки чинос со стрелками",
+      "rating": 4.8
+    },
+    {
+      "id": 8,
+      "name": "Пиджак из итальянского хлопка",
+      "price": 39000,
+      "images": ["./images/men/8_1.jpg", "./images/men/8_2.jpg"],
+      "colors": ["#C5CBCC"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Сатиновое переплетение делает хлопок гладким, менее мнущимся и шелковистым на ощупь. Универсальная модель на каждый день — слегка зауженные книзу брюки чинос со стрелками",
+      "rating": 4.8
+    },
+    {
+      "id": 9,
+      "name": "Пиджак из итальянского хлопка",
+      "price": 39000,
+      "images": ["./images/men/9_1.jpg", "./images/men/9_2.jpg"],
+      "colors": ["#766151"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Сатиновое переплетение делает хлопок гладким, менее мнущимся и шелковистым на ощупь. Универсальная модель на каждый день — слегка зауженные книзу брюки чинос со стрелками",
+      "rating": 4.8
+    },
+    {
+      "id": 10,
+      "name": "Джемпер из шелка и хлопка",
+      "price": 11000,
+      "images": ["./images/men/10_1.jpg", "./images/men/10_2.jpg"],
+      "colors": ["#827D6D"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Лето", "Весна", "Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Нежная на ощупь пряжа из гладкого шелка и дышащего хлопка. Мы связали изделие в две нити, чтобы трикотаж был плотнее",
+      "rating": 4.8
+    },
+    {
+      "id": 11,
+      "name": "Джемпер из шелка и хлопка",
+      "price": 11000,
+      "images": ["./images/men/11_1.jpg", "./images/men/11_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Нежная на ощупь пряжа из гладкого шелка и дышащего хлопка. Мы связали изделие в две нити, чтобы трикотаж был плотнее",
+      "rating": 4.8
+    },
+    {
+      "id": 12,
+      "name": "Брюки из шелка и хлопка",
+      "price": 10990,
+      "images": ["./images/men/12_1.jpg", "./images/men/12_2.jpg"],
+      "colors": ["#827D6D"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Нежная на ощупь пряжа из гладкого шелка и дышащего хлопка. Мы связали изделие в две нити, чтобы трикотаж был плотнее",
+      "rating": 4.8
+    },
+    {
+      "id": 13,
+      "name": "Брюки из шелка и хлопка",
+      "price": 10990,
+      "images": ["./images/men/13_1.jpg", "./images/men/13_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Лето", "Весна", "Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Нежная на ощупь пряжа из гладкого шелка и дышащего хлопка. Мы связали изделие в две нити, чтобы трикотаж был плотнее",
+      "rating": 4.8
+    },
+    {
+      "id": 14,
+      "name": "Брюки Rohe",
+      "price": 26000,
+      "images": ["./images/men/14_1.jpg", "./images/men/14_2.jpg"],
+      "colors": ["#827D6D"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Натуральная шерсть Super 100’S — гладкая, ровная и долговечная ткань из длинноволокнистой супертонкой шерсти. Почти не мнется благодаря высокой крутке нитей",
+      "rating": 4.8
+    },
+    {
+      "id": 15,
+      "name": "Брюки Rohe",
+      "price": 26000,
+      "images": ["./images/men/15_1.jpg", "./images/men/15_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Натуральная шерсть Super 100’S — гладкая, ровная и долговечная ткань из длинноволокнистой супертонкой шерсти. Почти не мнется благодаря высокой крутке нитей",
+      "rating": 4.8
+    },
+    {
+      "id": 16,
+      "name": "Пиджак Rohe",
+      "price": 39000,
+      "images": ["./images/men/16_1.jpg", "./images/men/16_2.jpg"],
+      "colors": ["#827D6D"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Неформальный пиджак, который легко взять с собой в дорогу или носить целый день, от деловой встречи ранним утром до вечернего выхода",
+      "rating": 4.8
+    },
+    {
+      "id": 17,
+      "name": "Пиджак Rohe",
+      "price": 39000,
+      "images": ["./images/men/17_1.jpg", "./images/men/17_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Лето", "Весна", "Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Неформальный пиджак, который легко взять с собой в дорогу или носить целый день, от деловой встречи ранним утром до вечернего выхода",
+      "rating": 4.8
+    },
+    {
+      "id": 18,
+      "name": "Пиджак After 5",
+      "price": 37000,
+      "images": ["./images/men/18_1.jpg", "./images/men/18_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Пиджак для нестрогих мероприятий — выглядит собранно и по-летнему расслабленно",
+      "rating": 4.8
+    },
+    {
+      "id": 19,
+      "name": "Пиджак After 5",
+      "price": 37000,
+      "images": ["./images/men/19_1.jpg", "./images/men/19_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Пиджак для нестрогих мероприятий — выглядит собранно и по-летнему расслабленно",
+      "rating": 4.8
+    },
+    {
+      "id": 20,
+      "name": "Брюки After 5",
+      "price": 17000,
+      "images": ["./images/men/20_1.jpg", "./images/men/20_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Брюки для нестрогих мероприятий — широкие, при этом собранные благодаря стрелкам и плотному поясу на корсаже",
+      "rating": 4.8
+    },
+    {
+      "id": 21,
+      "name": "Брюки After 5",
+      "price": 17000,
+      "images": ["./images/men/21_1.jpg", "./images/men/21_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Лето", "Весна", "Осень"],
+      "gender": "men",
+      "description":
+        "Брюки для нестрогих мероприятий — широкие, при этом собранные благодаря стрелкам и плотному поясу на корсаже",
+      "rating": 4.8
+    },
+    {
+      "id": 22,
+      "name": "Бомбер из хлопка и шелка",
+      "price": 21000,
+      "images": ["./images/men/22_1.jpg", "./images/men/22_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Весна", "Осень"],
+      "gender": "men",
+      "description": "Легкий, как рубашка, бомбер из мягкого хлопка с шелком",
+      "rating": 4.8
+    },
+    {
+      "id": 23,
+      "name": "Бомбер из хлопка и шелка",
+      "price": 21000,
+      "images": ["./images/men/23_1.jpg", "./images/men/23_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Весна", "Осень"],
+      "gender": "men",
+      "description": "Легкий, как рубашка, бомбер из мягкого хлопка с шелком",
+      "rating": 4.8
+    },
+    {
+      "id": 24,
+      "name": "Футболка из шелка и хлопка",
+      "price": 11000,
+      "images": ["./images/men/24_1.jpg", "./images/men/24_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Лаконичная футболка для офиса и вечера — можно носить ее как под пиджак, так и самостоятельно",
+      "rating": 4.8
+    },
+    {
+      "id": 25,
+      "name": "Футболка из шелка и хлопка",
+      "price": 11000,
+      "images": ["./images/men/25_1.jpg", "./images/men/25_2.jpg"],
+      "colors": ["#8E91AA"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Лаконичная футболка для офиса и вечера — можно носить ее как под пиджак, так и самостоятельно",
+      "rating": 4.8
+    },
+    {
+      "id": 26,
+      "name": "Джемпер-поло",
+      "price": 14000,
+      "images": ["./images/men/26_1.jpg", "./images/men/26_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Для этого поло мы выбрали редкую пряжу из тонкой шерсти и льна и связали ее в одну нить, чтобы трикотаж получился легким и дышащим",
+      "rating": 4.8
+    },
+    {
+      "id": 27,
+      "name": "Джемпер-поло",
+      "price": 14000,
+      "images": ["./images/men/27_1.jpg", "./images/men/27_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Для этого поло мы выбрали редкую пряжу из тонкой шерсти и льна и связали ее в одну нить, чтобы трикотаж получился легким и дышащим",
+      "rating": 4.8
+    },
+    {
+      "id": 28,
+      "name": "Джемпер-поло",
+      "price": 14000,
+      "images": ["./images/men/28_1.jpg", "./images/men/28_2.jpg"],
+      "colors": ["#BE7E7C"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Для этого поло мы выбрали редкую пряжу из тонкой шерсти и льна и связали ее в одну нить, чтобы трикотаж получился легким и дышащим",
+      "rating": 4.8
+    },
+    {
+      "id": 29,
+      "name": "Поло из шелка и хлопка",
+      "price": 16000,
+      "images": ["./images/men/29_1.jpg", "./images/men/29_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Нежная на ощупь пряжа из гладкого шелка и дышащего хлопка. Комфортная свободная посадка и смещенный плечевой шов для удобства движений",
+      "rating": 4.8
+    },
+    {
+      "id": 30,
+      "name": "Поло из шелка и хлопка",
+      "price": 16000,
+      "images": ["./images/men/30_1.jpg", "./images/men/30_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Нежная на ощупь пряжа из гладкого шелка и дышащего хлопка. Комфортная свободная посадка и смещенный плечевой шов для удобства движений",
+      "rating": 4.8
+    },
+    {
+      "id": 31,
+      "name": "Поло из шелка и хлопка",
+      "price": 16000,
+      "images": ["./images/men/31_1.jpg", "./images/men/31_2.jpg"],
+      "colors": ["#BE7E7C"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Нежная на ощупь пряжа из гладкого шелка и дышащего хлопка. Комфортная свободная посадка и смещенный плечевой шов для удобства движений",
+      "rating": 4.8
+    },
+    {
+      "id": 32,
+      "name": "Поло из шелка и хлопка",
+      "price": 16000,
+      "images": ["./images/men/32_1.jpg", "./images/men/32_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Весна", "Осень", "Лето"],
+      "gender": "men",
+      "description":
+        "Нежная на ощупь пряжа из гладкого шелка и дышащего хлопка. Комфортная свободная посадка и смещенный плечевой шов для удобства движений",
+      "rating": 4.8
+    },
+    {
+      "id": 33,
+      "name": "Плащ Osaka",
+      "price": 46000,
+      "images": ["./images/men/33_1.jpg", "./images/men/33_2.jpg"],
+      "colors": ["#827D6D"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Для этого плаща мы нашли технологичную ткань в Японии — приятный на ощупь гладкий материал с шерстью. Ткань мало мнется и отталкивает небольшие осадки благодаря специальной пропитке",
+      "rating": 4.8
+    },
+    {
+      "id": 34,
+      "name": "Куртка Solaris",
+      "price": 57000,
+      "images": ["./images/men/34_1.jpg", "./images/men/34_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Пряжа для этой куртки создана на фабрике Moro — поставщика Burberry, Theory и Givenchy. Это объемный шнурок, связанный из кашемировых нитей",
+      "rating": 4.8
+    },
+    {
+      "id": 35,
+      "name": "Бомбер Salinger",
+      "price": 33000,
+      "images": ["./images/men/35_1.jpg", "./images/men/35_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Бестселлер коллекции — бомбер из очень мягкой шерсти, который в этом сезоне сделали более лаконичным",
+      "rating": 4.8
+    },
+    {
+      "id": 36,
+      "name": "Бомбер Salinger",
+      "price": 33000,
+      "images": ["./images/men/36_1.jpg", "./images/men/36_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Бестселлер коллекции — бомбер из очень мягкой шерсти, который в этом сезоне сделали более лаконичным",
+      "rating": 4.8
+    },
+    {
+      "id": 37,
+      "name": "Джемпер Harvest",
+      "price": 15000,
+      "images": ["./images/men/37_1.jpg", "./images/men/37_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Легкий и дышащий: джемпер связан из воздушной хлопковой нити объемным переплетением, которое напоминает ручную работу",
+      "rating": 4.8
+    },
+    {
+      "id": 38,
+      "name": "Джемпер Harvest",
+      "price": 15000,
+      "images": ["./images/men/38_1.jpg", "./images/men/38_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Осень", "Зима"],
+      "gender": "men",
+      "description":
+        "Легкий и дышащий: джемпер связан из воздушной хлопковой нити объемным переплетением, которое напоминает ручную работу",
+      "rating": 4.8
+    },
+    {
+      "id": 39,
+      "name": "Шорты Light Relaxed",
+      "price": 12000,
+      "images": ["./images/men/39_1.jpg", "./images/men/39_2.jpg"],
+      "colors": ["#95BCC4"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Легкие шорты — комфортная база для теплых дней. Дышащий деним 8 Oz с винтажным эффектом, пояс частично эластичный",
+      "rating": 4.8
+    },
+    {
+      "id": 40,
+      "name": "Шорты Light Relaxed",
+      "price": 12000,
+      "images": ["./images/men/40_1.jpg", "./images/men/40_2.jpg"],
+      "colors": ["#455972"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Легкие шорты — комфортная база для теплых дней. Дышащий деним 8 Oz с винтажным эффектом, пояс частично эластичный",
+      "rating": 4.8
+    },
+    {
+      "id": 41,
+      "name": "Шорты Dacha",
+      "price": 19000,
+      "images": ["./images/men/41_1.jpg", "./images/men/41_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Гладкая и мягкая пряжа на основе вискозы и полиамида — приятно касается кожи и слегка охлаждает",
+      "rating": 4.8
+    },
+    {
+      "id": 42,
+      "name": "Шорты Dacha",
+      "price": 19000,
+      "images": ["./images/men/42_1.jpg", "./images/men/42_2.jpg"],
+      "colors": ["#455972"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Гладкая и мягкая пряжа на основе вискозы и полиамида — приятно касается кожи и слегка охлаждает",
+      "rating": 4.8
+    },
+    {
+      "id": 43,
+      "name": "Толстовка Dacha",
+      "price": 22000,
+      "images": ["./images/men/43_1.jpg", "./images/men/43_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Весна", "Лето", "Осень"],
+      "gender": "men",
+      "description":
+        "Гладкая и мягкая пряжа на основе вискозы и полиамида — приятно касается кожи и слегка охлаждает",
+      "rating": 4.8
+    },
+    {
+      "id": 44,
+      "name": "Толстовка Dacha",
+      "price": 22000,
+      "images": ["./images/men/44_1.jpg", "./images/men/44_2.jpg"],
+      "colors": ["#455972"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Весна", "Лето", "Осень"],
+      "gender": "men",
+      "description":
+        "Гладкая и мягкая пряжа на основе вискозы и полиамида — приятно касается кожи и слегка охлаждает",
+      "rating": 4.8
+    },
+    {
+      "id": 45,
+      "name": "Кардиган Casual Friday",
+      "price": 29000,
+      "images": ["./images/men/45_1.jpg", "./images/men/45_2.jpg"],
+      "colors": ["#827D6D"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Зима", "Осень"],
+      "gender": "men",
+      "description":
+        "Связан из шерсти мериноса и хлопка плотным двойным переплетением: такой трикотаж мало тянется и приятно согревает",
+      "rating": 4.8
+    },
+    {
+      "id": 46,
+      "name": "Кардиган Casual Friday",
+      "price": 29000,
+      "images": ["./images/men/46_1.jpg", "./images/men/46_2.jpg"],
+      "colors": ["#41424B"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Зима", "Осень"],
+      "gender": "men",
+      "description":
+        "Связан из шерсти мериноса и хлопка плотным двойным переплетением: такой трикотаж мало тянется и приятно согревает",
+      "rating": 4.8
+    },
+    {
+      "id": 47,
+      "name": "Рубашка Eastwood",
+      "price": 19090,
+      "images": ["./images/men/47_1.jpg", "./images/men/47_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M", "L"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Мягкая и теплая фланель создана в Барселоне, на фабрике, которая работает с COS, Sezane и Massimo Dutti",
+      "rating": 4.8
+    },
+    {
+      "id": 48,
+      "name": "Рубашка Eastwood",
+      "price": 19090,
+      "images": ["./images/men/48_1.jpg", "./images/men/48_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["S", "M", "L", "XL"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Мягкая и теплая фланель создана в Барселоне, на фабрике, которая работает с COS, Sezane и Massimo Dutti",
+      "rating": 4.8
+    },
+    {
+      "id": 49,
+      "name": "Футболка Shimmer",
+      "price": 7000,
+      "images": ["./images/men/49_1.jpg", "./images/men/49_2.jpg"],
+      "colors": ["#624134"],
+      "category": "Одежда",
+      "size": ["XS", "S", "M"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Мягкая и теплая фланель создана в Барселоне, на фабрике, которая работает с COS, Sezane и Massimo Dutti",
+      "rating": 4.8
+    },
+    {
+      "id": 50,
+      "name": "Футболка Shimmer",
+      "price": 7000,
+      "images": ["./images/men/50_1.jpg", "./images/men/50_2.jpg"],
+      "colors": ["#C7BBAC"],
+      "category": "Одежда",
+      "size": ["M", "L", "XL"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Мягкая и теплая фланель создана в Барселоне, на фабрике, которая работает с COS, Sezane и Massimo Dutti",
+      "rating": 4.8
+    },
+    {
+      "id": 51,
+      "name": "Футболка Shimmer",
+      "price": 7000,
+      "images": ["./images/men/51_1.jpg", "./images/men/51_2.jpg"],
+      "colors": ["#7FA2AA"],
+      "category": "Одежда",
+      "size": ["S", "M", "L"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Мягкая и теплая фланель создана в Барселоне, на фабрике, которая работает с COS, Sezane и Massimo Dutti",
+      "rating": 4.8
+    },
+    {
+      "id": 52,
+      "name": "Футболка Shimmer",
+      "price": 7000,
+      "images": ["./images/men/52_1.jpg", "./images/men/52_2.jpg"],
+      "colors": ["#983926"],
+      "category": "Одежда",
+      "size": ["L", "XL"],
+      "season": ["Весна", "Лето"],
+      "gender": "men",
+      "description":
+        "Мягкая и теплая фланель создана в Барселоне, на фабрике, которая работает с COS, Sezane и Massimo Dutti",
+      "rating": 4.8
+    }
+  ]
+}
