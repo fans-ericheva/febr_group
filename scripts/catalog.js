@@ -36,7 +36,6 @@ function refreshCatalog() {
   renderColorFilters();
 }
 
-
 // Функция для обновления состояния пагинации
 function updatePaginationState(totalItems) {
   paginationState.totalItems = totalItems;
@@ -857,6 +856,7 @@ function loadCatalog() {
   
   console.log("=== ЗАГРУЗКА КАТАЛОГА ЗАВЕРШЕНА ===");
 }
+
 // Инициализация при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM загружен, запускаем каталог");

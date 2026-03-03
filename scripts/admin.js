@@ -863,33 +863,33 @@ function addRequestsTab() {
   if (!tabsContainer) return;
 
   // Проверяем, есть ли уже вкладка
-  if (document.querySelector('[data-tab="requests"]')) return;
+  // if (document.querySelector('[data-tab="requests"]')) return;
 
-  const requestsTab = document.createElement("button");
-  requestsTab.className = "tab-button";
-  requestsTab.setAttribute("data-tab", "requests");
-  requestsTab.textContent = "Заявки";
+  // const requestsTab = document.createElement("button");
+  // requestsTab.className = "tab-button";
+  // requestsTab.setAttribute("data-tab", "requests");
+  // requestsTab.textContent = "Заявки";
 
   // Добавляем счетчик новых заявок
-  const requests = loadContactRequests();
-  const newRequestsCount = requests.filter((r) => r.status === "new").length;
+  // const requests = loadContactRequests();
+  // const newRequestsCount = requests.filter((r) => r.status === "new").length;
 
-  if (newRequestsCount > 0) {
-    const badge = document.createElement("span");
-    badge.style.cssText = `
-      display: inline-block;
-      background-color: #c62828;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 8px;
-      font-size: 12px;
-      margin-left: 8px;
-    `;
-    badge.textContent = newRequestsCount;
-    requestsTab.appendChild(badge);
-  }
+  // if (newRequestsCount > 0) {
+  //   const badge = document.createElement("span");
+  //   badge.style.cssText = `
+  //     display: inline-block;
+  //     background-color: #c62828;
+  //     color: white;
+  //     border-radius: 50%;
+  //     padding: 2px 8px;
+  //     font-size: 12px;
+  //     margin-left: 8px;
+  //   `;
+  //   badge.textContent = newRequestsCount;
+  //   requestsTab.appendChild(badge);
+  // }
 
-  tabsContainer.appendChild(requestsTab);
+  // tabsContainer.appendChild(requestsTab);
 
   // Добавляем контейнер для заявок
   const contentContainer = document.querySelector(".admin-content");
@@ -915,10 +915,12 @@ function addRequestsTab() {
   contentContainer.appendChild(requestsPane);
 
   // Добавляем обработчик для вкладки
-  requestsTab.addEventListener("click", function () {
-    window.switchTab("requests-tab");
-    renderContactRequests();
-  });
+  // requestsTab.addEventListener("click", function () {
+  //   window.switchTab("requests-tab");
+  //   renderContactRequests();
+  // });
+  renderContactRequests()
+
 }
 
 // Фильтрация заявок
@@ -990,8 +992,6 @@ renderContactRequests = function () {
         hour: "2-digit",
         minute: "2-digit",
       });
-
-      debugger;
 
       return `
       <div class="request-item" data-request-id="${request.id}" style="
