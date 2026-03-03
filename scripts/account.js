@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeButton) activeButton.classList.add("active");
 
     localStorage.setItem("activeAccountTab", tabId);
-    
+
     // ЕДИНСТВЕННОЕ ИЗМЕНЕНИЕ: загружаем заказы при открытии вкладки
     if (tabId === "orders-tab") {
       loadUserOrders();
@@ -133,12 +133,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadUserOrders() {
     const ordersContainer = document.querySelector(".orders-list");
     if (!ordersContainer) return;
-    
+
     // Получаем данные текущего пользователя
     const userEmail = localStorage.getItem("profileEmail") || "";
     const userName = localStorage.getItem("profileName") || "";
     const userPhone = localStorage.getItem("profilePhone") || "";
-    
+
     // Получаем все заказы из adminOrders
     let allOrders = [];
     try {
@@ -149,37 +149,45 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (e) {
       console.error("Ошибка загрузки заказов:", e);
     }
-    
+
     // Фильтруем заказы пользователя
-    const userOrders = allOrders.filter(order => {
+    const userOrders = allOrders.filter((order) => {
       // По email
-      if (userEmail && order.email && order.email.toLowerCase() === userEmail.toLowerCase()) {
+      if (
+        userEmail &&
+        order.email &&
+        order.email.toLowerCase() === userEmail.toLowerCase()
+      ) {
         return true;
       }
       // По телефону (без форматирования)
       if (userPhone && order.phone) {
-        const cleanOrderPhone = order.phone.replace(/\D/g, '');
-        const cleanUserPhone = userPhone.replace(/\D/g, '');
+        const cleanOrderPhone = order.phone.replace(/\D/g, "");
+        const cleanUserPhone = userPhone.replace(/\D/g, "");
         if (cleanOrderPhone === cleanUserPhone) {
           return true;
         }
       }
       // По имени (частичное совпадение)
-      if (userName && order.customer && order.customer.toLowerCase().includes(userName.toLowerCase())) {
+      if (
+        userName &&
+        order.customer &&
+        order.customer.toLowerCase().includes(userName.toLowerCase())
+      ) {
         return true;
       }
       return false;
     });
-    
+
     // Отображаем заказы
     displayOrders(userOrders);
   }
-  
+
   // === НОВАЯ ФУНКЦИЯ: ОТОБРАЖЕНИЕ ЗАКАЗОВ ===
   function displayOrders(orders) {
     const ordersContainer = document.querySelector(".orders-list");
     if (!ordersContainer) return;
-    
+
     if (orders.length === 0) {
       ordersContainer.innerHTML = `
         <div class="order-item" style="text-align: center; padding: 40px; background: transparent; border: none;">
@@ -188,46 +196,53 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
       return;
     }
-    
+
     // Сортируем по дате (новые сверху)
     orders.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
+
     const statusLabels = {
       new: "Новый",
       processing: "В обработке",
       delivered: "Доставлен",
       cancelled: "Отменён",
     };
-    
-    const ordersHtml = orders.map(order => {
-      const date = new Date(order.date).toLocaleDateString("ru-RU");
-      const statusClass = order.status;
-      
-      const itemsHtml = order.items.map(item => {
-        // Пытаемся найти изображение товара в productsData
-        let imageSrc = 'images/placeholder.png';
-        if (window.productsData) {
-          const menProduct = window.productsData.men?.find(p => p.name === item.name);
-          const womenProduct = window.productsData.women?.find(p => p.name === item.name);
-          const product = menProduct || womenProduct;
-          if (product && product.images && product.images[0]) {
-            imageSrc = product.images[0];
-          }
-        }
-        
-        return `
+
+    const ordersHtml = orders
+      .map((order) => {
+        const date = new Date(order.date).toLocaleDateString("ru-RU");
+        const statusClass = order.status;
+
+        const itemsHtml = order.items
+          .map((item) => {
+            // Пытаемся найти изображение товара в productsData
+            let imageSrc = "images/alex.png";
+            if (window.productsData) {
+              const menProduct = window.productsData.men?.find(
+                (p) => p.name === item.name,
+              );
+              const womenProduct = window.productsData.women?.find(
+                (p) => p.name === item.name,
+              );
+              const product = menProduct || womenProduct;
+              if (product && product.images && product.images[0]) {
+                imageSrc = product.images[0];
+              }
+            }
+
+            return `
           <div class="order-product">
-            <img src="${imageSrc}" alt="${item.name}" class="order-product-image" onerror="this.src='images/placeholder.png'">
+            <img src="${imageSrc}" alt="${item.name}" class="order-product-image" onerror="this.src='images/alex.png'">
             <div class="order-product-info">
               <p class="order-product-name">${item.name}</p>
               <p class="order-product-price">${formatPrice(item.price)} ₽ × ${item.quantity} = ${formatPrice(item.price * item.quantity)} ₽</p>
-              ${item.size ? `<p style="font-size: 14px; opacity: 0.6;">Размер: ${item.size}</p>` : ''}
+              ${item.size ? `<p style="font-size: 14px; opacity: 0.6;">Размер: ${item.size}</p>` : ""}
             </div>
           </div>
         `;
-      }).join('');
-      
-      return `
+          })
+          .join("");
+
+        return `
         <div class="order-item">
           <div class="order-header">
             <span class="order-number">${order.id}</span>
@@ -239,30 +254,34 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <div class="order-footer">
             <span class="order-total">Итого: <span class="total-price">${formatPrice(order.total)} ₽</span></span>
-            <span style="font-size: 14px; opacity: 0.7;">Оплата: ${order.paymentMethod || 'Не указана'}</span>
+            <span style="font-size: 14px; opacity: 0.7;">Оплата: ${order.paymentMethod || "Не указана"}</span>
           </div>
           <p style="font-size: 14px; opacity: 0.7; margin-top: 15px; padding-top: 15px; border-top: 1px dashed rgba(79,62,53,0.2);">
             Адрес: ${order.address}
           </p>
         </div>
       `;
-    }).join('');
-    
+      })
+      .join("");
+
     ordersContainer.innerHTML = ordersHtml;
   }
-  
+
   // === ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ ===
   function formatPrice(price) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   }
-  
+
   // === СЛУШАЕМ ИЗМЕНЕНИЯ В ЗАКАЗАХ ===
-  window.addEventListener('storage', function(e) {
-    if (e.key === 'adminOrders' && document.getElementById('orders-tab')?.classList.contains('active')) {
+  window.addEventListener("storage", function (e) {
+    if (
+      e.key === "adminOrders" &&
+      document.getElementById("orders-tab")?.classList.contains("active")
+    ) {
       loadUserOrders();
     }
   });
-  
+
   // Для отладки - можно вызвать в консоли window.refreshOrders()
   window.refreshOrders = loadUserOrders;
 });

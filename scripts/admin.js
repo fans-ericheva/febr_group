@@ -241,7 +241,7 @@ function updateStatistics() {
   document.getElementById("sizeStats").innerHTML = sizeStatsHtml;
 }
 
-// ОТОБРАЖЕНИЕ ЗАКАЗОВ 
+// ОТОБРАЖЕНИЕ ЗАКАЗОВ
 function renderOrders() {
   const ordersList = document.getElementById("adminOrdersList");
   const filter = document.getElementById("orderStatusFilter")?.value || "all";
@@ -321,9 +321,13 @@ function renderOrders() {
   ordersList.innerHTML = ordersHtml;
 
   // Добавляем обработчик для фильтра
+  const filterSelect = document.getElementById("orderStatusFilter");
+  if (filterSelect) {
+    // Удаляем старый обработчик, если есть
+    filterSelect.removeEventListener("change", renderOrders);
+    filterSelect.addEventListener("change", renderOrders);
+  }
 }
-
-
 
 // Обновление статуса заказа
 window.updateOrderStatus = function (orderId, newStatus) {
@@ -349,9 +353,11 @@ function renderProductsTable() {
   let filteredProducts = [...allProducts];
 
   if (searchTerm) {
-    filteredProducts = filteredProducts.filter((p) =>
-      p.name.toLowerCase().includes(searchTerm),
-    );
+    filteredProducts = filteredProducts.filter((p) => {
+      if (p.name) {
+        return p.name.toLowerCase().includes(searchTerm);
+      }
+    });
   }
 
   if (genderFilter !== "all") {
@@ -629,17 +635,16 @@ function showNotification(message, type) {
   alert(message); // Простой вариант, можно заменить на кастомные уведомления
 }
 
-
 // ===== НОВАЯ ВКЛАДКА "ЗАЯВКИ" =====
 
 // Загрузка заявок
 function loadContactRequests() {
-  const savedRequests = localStorage.getItem('contactRequests');
+  const savedRequests = localStorage.getItem("contactRequests");
   if (savedRequests) {
     try {
       return JSON.parse(savedRequests);
     } catch (e) {
-      console.error('Ошибка загрузки заявок:', e);
+      console.error("Ошибка загрузки заявок:", e);
       return [];
     }
   }
@@ -648,36 +653,38 @@ function loadContactRequests() {
 
 // Отображение заявок
 function renderContactRequests() {
-  const requestsContainer = document.getElementById('contactRequestsList');
+  const requestsContainer = document.getElementById("contactRequestsList");
   if (!requestsContainer) return;
-  
+
   const requests = loadContactRequests();
-  
+
   if (requests.length === 0) {
-    requestsContainer.innerHTML = '<p class="loading-message">Новых заявок нет</p>';
+    requestsContainer.innerHTML =
+      '<p class="loading-message">Новых заявок нет</p>';
     return;
   }
-  
+
   // Сортируем по дате (новые сверху)
   requests.sort((a, b) => new Date(b.date) - new Date(a.date));
-  
+
   const statusLabels = {
-    new: 'Новая',
-    in_progress: 'В обработке',
-    completed: 'Завершена',
-    archived: 'В архиве'
+    new: "Новая",
+    in_progress: "В обработке",
+    completed: "Завершена",
+    archived: "В архиве",
   };
-  
-  const requestsHtml = requests.map(request => {
-    const date = new Date(request.date).toLocaleString('ru-RU', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-    
-    return `
+
+  const requestsHtml = requests
+    .map((request) => {
+      const date = new Date(request.date).toLocaleString("ru-RU", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      return `
       <div class="request-item" data-request-id="${request.id}" style="
         background-color: rgba(79, 62, 53, 0.02);
         border: 1px solid rgba(79, 62, 53, 0.1);
@@ -713,18 +720,33 @@ function renderContactRequests() {
             font-family: Arial;
             font-size: 14px;
             font-weight: bold;
-            background-color: ${request.status === 'new' ? 'rgba(33, 150, 243, 0.1)' : 
-                              request.status === 'in_progress' ? 'rgba(255, 152, 0, 0.1)' : 
-                              request.status === 'completed' ? 'rgba(76, 175, 80, 0.1)' : 
-                              'rgba(158, 158, 158, 0.1)'};
-            color: ${request.status === 'new' ? '#1976d2' : 
-                    request.status === 'in_progress' ? '#f57c00' : 
-                    request.status === 'completed' ? '#2e7d32' : 
-                    '#616161'};
-            border: 1px solid ${request.status === 'new' ? '#1976d2' : 
-                                request.status === 'in_progress' ? '#f57c00' : 
-                                request.status === 'completed' ? '#2e7d32' : 
-                                '#616161'};
+            background-color: ${
+              request.status === "new"
+                ? "rgba(33, 150, 243, 0.1)"
+                : request.status === "in_progress"
+                  ? "rgba(255, 152, 0, 0.1)"
+                  : request.status === "completed"
+                    ? "rgba(76, 175, 80, 0.1)"
+                    : "rgba(158, 158, 158, 0.1)"
+            };
+            color: ${
+              request.status === "new"
+                ? "#1976d2"
+                : request.status === "in_progress"
+                  ? "#f57c00"
+                  : request.status === "completed"
+                    ? "#2e7d32"
+                    : "#616161"
+            };
+            border: 1px solid ${
+              request.status === "new"
+                ? "#1976d2"
+                : request.status === "in_progress"
+                  ? "#f57c00"
+                  : request.status === "completed"
+                    ? "#2e7d32"
+                    : "#616161"
+            };
             margin-left: auto;
           ">${statusLabels[request.status]}</span>
           <select onchange="updateRequestStatus('${request.id}', this.value)" style="
@@ -738,10 +760,10 @@ function renderContactRequests() {
             cursor: pointer;
             outline: none;
           ">
-            <option value="new" ${request.status === 'new' ? 'selected' : ''}>Новая</option>
-            <option value="in_progress" ${request.status === 'in_progress' ? 'selected' : ''}>В обработке</option>
-            <option value="completed" ${request.status === 'completed' ? 'selected' : ''}>Завершена</option>
-            <option value="archived" ${request.status === 'archived' ? 'selected' : ''}>В архиве</option>
+            <option value="new" ${request.status === "new" ? "selected" : ""}>Новая</option>
+            <option value="in_progress" ${request.status === "in_progress" ? "selected" : ""}>В обработке</option>
+            <option value="completed" ${request.status === "completed" ? "selected" : ""}>Завершена</option>
+            <option value="archived" ${request.status === "archived" ? "selected" : ""}>В архиве</option>
           </select>
         </div>
         
@@ -805,54 +827,55 @@ function renderContactRequests() {
         </div>
       </div>
     `;
-  }).join('');
-  
+    })
+    .join("");
+
   requestsContainer.innerHTML = requestsHtml;
 }
 
 // Обновление статуса заявки
-window.updateRequestStatus = function(requestId, newStatus) {
+window.updateRequestStatus = function (requestId, newStatus) {
   const requests = loadContactRequests();
-  const requestIndex = requests.findIndex(r => r.id === requestId);
-  
+  const requestIndex = requests.findIndex((r) => r.id === requestId);
+
   if (requestIndex !== -1) {
     requests[requestIndex].status = newStatus;
-    localStorage.setItem('contactRequests', JSON.stringify(requests));
+    localStorage.setItem("contactRequests", JSON.stringify(requests));
     renderContactRequests();
-    showNotification('Статус заявки обновлен', 'success');
+    showNotification("Статус заявки обновлен", "success");
   }
 };
 
 // Удаление заявки
-window.deleteRequest = function(requestId) {
-  if (confirm('Вы уверены, что хотите удалить эту заявку?')) {
+window.deleteRequest = function (requestId) {
+  if (confirm("Вы уверены, что хотите удалить эту заявку?")) {
     const requests = loadContactRequests();
-    const filteredRequests = requests.filter(r => r.id !== requestId);
-    localStorage.setItem('contactRequests', JSON.stringify(filteredRequests));
+    const filteredRequests = requests.filter((r) => r.id !== requestId);
+    localStorage.setItem("contactRequests", JSON.stringify(filteredRequests));
     renderContactRequests();
-    showNotification('Заявка удалена', 'warning');
+    showNotification("Заявка удалена", "warning");
   }
 };
 
 // Добавляем кнопку для новой вкладки в админ-панель
 function addRequestsTab() {
-  const tabsContainer = document.querySelector('.admin-tabs');
+  const tabsContainer = document.querySelector(".admin-tabs");
   if (!tabsContainer) return;
-  
+
   // Проверяем, есть ли уже вкладка
   if (document.querySelector('[data-tab="requests"]')) return;
-  
-  const requestsTab = document.createElement('button');
-  requestsTab.className = 'tab-button';
-  requestsTab.setAttribute('data-tab', 'requests');
-  requestsTab.textContent = 'Заявки';
-  
+
+  const requestsTab = document.createElement("button");
+  requestsTab.className = "tab-button";
+  requestsTab.setAttribute("data-tab", "requests");
+  requestsTab.textContent = "Заявки";
+
   // Добавляем счетчик новых заявок
   const requests = loadContactRequests();
-  const newRequestsCount = requests.filter(r => r.status === 'new').length;
-  
+  const newRequestsCount = requests.filter((r) => r.status === "new").length;
+
   if (newRequestsCount > 0) {
-    const badge = document.createElement('span');
+    const badge = document.createElement("span");
     badge.style.cssText = `
       display: inline-block;
       background-color: #c62828;
@@ -865,14 +888,14 @@ function addRequestsTab() {
     badge.textContent = newRequestsCount;
     requestsTab.appendChild(badge);
   }
-  
+
   tabsContainer.appendChild(requestsTab);
-  
+
   // Добавляем контейнер для заявок
-  const contentContainer = document.querySelector('.admin-content');
-  const requestsPane = document.createElement('div');
-  requestsPane.className = 'tab-pane';
-  requestsPane.id = 'requests-tab';
+  const contentContainer = document.querySelector(".admin-content");
+  const requestsPane = document.createElement("div");
+  requestsPane.className = "tab-pane";
+  requestsPane.id = "requests-tab";
   requestsPane.innerHTML = `
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
       <h2 style="font-family: Georgia; font-size: 32px; color: #4f3e35;">Заявки с сайта</h2>
@@ -888,81 +911,89 @@ function addRequestsTab() {
     </div>
     <div id="contactRequestsList" class="requests-list"></div>
   `;
-  
+
   contentContainer.appendChild(requestsPane);
-  
+
   // Добавляем обработчик для вкладки
-  requestsTab.addEventListener('click', function() {
-    window.switchTab('requests-tab');
+  requestsTab.addEventListener("click", function () {
+    window.switchTab("requests-tab");
     renderContactRequests();
   });
 }
 
 // Фильтрация заявок
-window.filterRequests = function() {
-  const filter = document.getElementById('requestsStatusFilter')?.value || 'all';
+window.filterRequests = function () {
+  const filter =
+    document.getElementById("requestsStatusFilter")?.value || "all";
   const requests = loadContactRequests();
-  
+
   let filteredRequests = requests;
-  if (filter !== 'all') {
-    filteredRequests = requests.filter(r => r.status === filter);
+  if (filter !== "all") {
+    filteredRequests = requests.filter((r) => r.status === filter);
   }
-  
+
   // Временно сохраняем отфильтрованные для отображения
-  const requestsContainer = document.getElementById('contactRequestsList');
+  const requestsContainer = document.getElementById("contactRequestsList");
   if (!requestsContainer) return;
-  
+
   if (filteredRequests.length === 0) {
-    requestsContainer.innerHTML = '<p class="loading-message">Заявки не найдены</p>';
+    requestsContainer.innerHTML =
+      '<p class="loading-message">Заявки не найдены</p>';
     return;
   }
-  
+
   // Переиспользуем функцию отображения с фильтром
   const originalRequests = loadContactRequests();
-  localStorage.setItem('filteredRequestsTemp', JSON.stringify(filteredRequests));
+  localStorage.setItem(
+    "filteredRequestsTemp",
+    JSON.stringify(filteredRequests),
+  );
   renderContactRequests();
-  localStorage.removeItem('filteredRequestsTemp');
+  localStorage.removeItem("filteredRequestsTemp");
 };
 
 // Модифицируем функцию renderContactRequests для поддержки фильтрации
 const originalRender = renderContactRequests;
-renderContactRequests = function() {
-  const requestsContainer = document.getElementById('contactRequestsList');
+renderContactRequests = function () {
+  const requestsContainer = document.getElementById("contactRequestsList");
   if (!requestsContainer) return;
-  
-  const filter = document.getElementById('requestsStatusFilter')?.value || 'all';
+
+  const filter =
+    document.getElementById("requestsStatusFilter")?.value || "all";
   let requests = loadContactRequests();
-  
-  if (filter !== 'all') {
-    requests = requests.filter(r => r.status === filter);
+
+  if (filter !== "all") {
+    requests = requests.filter((r) => r.status === filter);
   }
-  
+
   if (requests.length === 0) {
-    requestsContainer.innerHTML = '<p class="loading-message">Заявки не найдены</p>';
+    requestsContainer.innerHTML =
+      '<p class="loading-message">Заявки не найдены</p>';
     return;
   }
-  
-  requests.sort((a, b) => new Date(b.date) - new Date(a.date));
-  
-  const statusLabels = {
-    new: 'Новая',
-    in_progress: 'В обработке',
-    completed: 'Завершена',
-    archived: 'В архиве'
-  };
-  
-  const requestsHtml = requests.map(request => {
-    const date = new Date(request.date).toLocaleString('ru-RU', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
 
-    debugger;
-    
-    return `
+  requests.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const statusLabels = {
+    new: "Новая",
+    in_progress: "В обработке",
+    completed: "Завершена",
+    archived: "В архиве",
+  };
+
+  const requestsHtml = requests
+    .map((request) => {
+      const date = new Date(request.date).toLocaleString("ru-RU", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      debugger;
+
+      return `
       <div class="request-item" data-request-id="${request.id}" style="
         background-color: rgba(79, 62, 53, 0.02);
         border: 1px solid rgba(79, 62, 53, 0.1);
@@ -998,18 +1029,33 @@ renderContactRequests = function() {
             font-family: Arial;
             font-size: 14px;
             font-weight: bold;
-            background-color: ${request.status === 'new' ? 'rgba(33, 150, 243, 0.1)' : 
-                              request.status === 'in_progress' ? 'rgba(255, 152, 0, 0.1)' : 
-                              request.status === 'completed' ? 'rgba(76, 175, 80, 0.1)' : 
-                              'rgba(158, 158, 158, 0.1)'};
-            color: ${request.status === 'new' ? '#1976d2' : 
-                    request.status === 'in_progress' ? '#f57c00' : 
-                    request.status === 'completed' ? '#2e7d32' : 
-                    '#616161'};
-            border: 1px solid ${request.status === 'new' ? '#1976d2' : 
-                                request.status === 'in_progress' ? '#f57c00' : 
-                                request.status === 'completed' ? '#2e7d32' : 
-                                '#616161'};
+            background-color: ${
+              request.status === "new"
+                ? "rgba(33, 150, 243, 0.1)"
+                : request.status === "in_progress"
+                  ? "rgba(255, 152, 0, 0.1)"
+                  : request.status === "completed"
+                    ? "rgba(76, 175, 80, 0.1)"
+                    : "rgba(158, 158, 158, 0.1)"
+            };
+            color: ${
+              request.status === "new"
+                ? "#1976d2"
+                : request.status === "in_progress"
+                  ? "#f57c00"
+                  : request.status === "completed"
+                    ? "#2e7d32"
+                    : "#616161"
+            };
+            border: 1px solid ${
+              request.status === "new"
+                ? "#1976d2"
+                : request.status === "in_progress"
+                  ? "#f57c00"
+                  : request.status === "completed"
+                    ? "#2e7d32"
+                    : "#616161"
+            };
             margin-left: auto;
           ">${statusLabels[request.status]}</span>
           <select onchange="updateRequestStatus('${request.id}', this.value)" style="
@@ -1023,10 +1069,10 @@ renderContactRequests = function() {
             cursor: pointer;
             outline: none;
           ">
-            <option value="new" ${request.status === 'new' ? 'selected' : ''}>Новая</option>
-            <option value="in_progress" ${request.status === 'in_progress' ? 'selected' : ''}>В обработке</option>
-            <option value="completed" ${request.status === 'completed' ? 'selected' : ''}>Завершена</option>
-            <option value="archived" ${request.status === 'archived' ? 'selected' : ''}>В архиве</option>
+            <option value="new" ${request.status === "new" ? "selected" : ""}>Новая</option>
+            <option value="in_progress" ${request.status === "in_progress" ? "selected" : ""}>В обработке</option>
+            <option value="completed" ${request.status === "completed" ? "selected" : ""}>Завершена</option>
+            <option value="archived" ${request.status === "archived" ? "selected" : ""}>В архиве</option>
           </select>
         </div>
         
@@ -1090,13 +1136,14 @@ renderContactRequests = function() {
         </div>
       </div>
     `;
-  }).join('');
-  
+    })
+    .join("");
+
   requestsContainer.innerHTML = requestsHtml;
 };
 
 // Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Добавляем вкладку с заявками
   setTimeout(addRequestsTab, 500);
 });

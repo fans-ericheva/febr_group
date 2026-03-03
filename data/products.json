@@ -646,7 +646,7 @@
     },
     {
       "id": 49,
-      "title": "Юбка из шелка",
+      "name": "Юбка из шелка",
       "price": 12000,
       "images": ["./images/women/49_1.jpg", "./images/women/49_2.jpg"],
       "colors": ["#6B9EA7"],
@@ -660,7 +660,7 @@
     },
     {
       "id": 50,
-      "title": "Юбка из шелка",
+      "name": "Юбка из шелка",
       "price": 12000,
       "images": ["./images/women/50_1.jpg", "./images/women/50_2.jpg"],
       "colors": ["#003A57"],
